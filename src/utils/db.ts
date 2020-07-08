@@ -5,7 +5,8 @@ class Database {
     private connection: any;
     public uri: string;
     constructor() {
-        this.uri = 'mongodb://' + utils.mongo.user + ':' + utils.mongo.pass + '@' + utils.mongo.host + ':' + utils.mongo.port;
+        // this.uri = 'mongodb://' + utils.mongo.user + ':' + utils.mongo.pass + '@' + utils.mongo.host + ':' + utils.mongo.port;
+        this.uri = 'mongodb+srv://hoangman:123@cluster0-ascy6.mongodb.net/test?retryWrites=true&w=majority';
         this.onConnection();
     }
 
