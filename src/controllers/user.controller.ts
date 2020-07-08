@@ -13,7 +13,7 @@ class UserController{
         let user: IUser = {
             ...req.body
         }
-        return userService.create(user);
+        return userService.create();
     }
 }
 

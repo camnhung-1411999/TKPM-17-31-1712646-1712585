@@ -27,7 +27,7 @@ var UserController = /** @class */ (function () {
     };
     UserController.create = function (req) {
         var user = __assign({}, req.body);
-        return user_service_1.default.create(user);
+        return user_service_1.default.create();
     };
     return UserController;
 }());

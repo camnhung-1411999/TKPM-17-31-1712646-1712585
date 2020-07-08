@@ -6,7 +6,7 @@ class Database {
     public uri: string;
     constructor() {
         // this.uri = 'mongodb://' + utils.mongo.user + ':' + utils.mongo.pass + '@' + utils.mongo.host + ':' + utils.mongo.port;
-        this.uri = 'mongodb+srv://hoangman:123@cluster0-ascy6.mongodb.net/test?retryWrites=true&w=majority';
+        this.uri = 'mongodb+srv://hoangman:123@cluster0-ascy6.mongodb.net/hoangman?retryWrites=true&w=majority';
         this.onConnection();
     }
 
@@ -38,7 +38,6 @@ class Database {
         this.connection.on("error", (error: Error) => {
             console.log("Mongo Connection Error:" + error);
         })
-console.log(this.uri);
 
         const run = async () => {
             await mongoose.connect(this.uri, {

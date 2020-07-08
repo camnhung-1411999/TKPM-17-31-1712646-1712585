@@ -40,10 +40,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = __importDefault(require("mongoose"));
-var index_1 = __importDefault(require("./index"));
 var Database = /** @class */ (function () {
     function Database() {
-        this.uri = 'mongodb://' + index_1.default.mongo.user + ':' + index_1.default.mongo.pass + '@' + index_1.default.mongo.host + ':' + index_1.default.mongo.port;
+        // this.uri = 'mongodb://' + utils.mongo.user + ':' + utils.mongo.pass + '@' + utils.mongo.host + ':' + utils.mongo.port;
+        this.uri = 'mongodb+srv://hoangman:123@cluster0-ascy6.mongodb.net/hoangman?retryWrites=true&w=majority';
         this.onConnection();
     }
     Database.prototype.onConnection = function () {
@@ -71,7 +71,6 @@ var Database = /** @class */ (function () {
         this.connection.on("error", function (error) {
             console.log("Mongo Connection Error:" + error);
         });
-        console.log(this.uri);
         var run = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
