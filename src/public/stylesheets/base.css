@@ -1,0 +1,113 @@
+:root{
+    --font-size: 1.4rem;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto',Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 100%;
+    overflow-x: hidden !important;
+    
+}
+
+.grid-width{
+    width: 1240px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid-full-width{
+    width: 100%;
+}
+
+.row{
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.grid-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.grid-column-2{
+    width: 16.6667%;
+}
+
+.grid-column-2-4{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 20%;
+}
+
+.grid-column-3-6{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 25%;
+}
+
+
+.app-content{
+    width: 100%;
+    height: auto;
+    padding-top: 0px;
+}
+
+.container-app{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+/* Button */
+.button{ 
+    max-width: 500px;
+    height: 40px !important;
+    display: inline-flex;
+    background-color: black;
+    border-radius: 20px !important;
+    border: none;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    outline: none;
+    color: white;
+    text-decoration: none;
+    justify-content: center !important;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.05) !important; 
+}
+
+.lock{
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    /* color: burlywood; */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.05);
+    cursor: none;
+    outline: none;
+    border: none;
+}
+
+@keyframes AnimationDropDown{
+    from{
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    to{
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}

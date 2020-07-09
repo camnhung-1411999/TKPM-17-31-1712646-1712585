@@ -1,7 +1,768 @@
-<div class="card text-white bg-primary">
-  <img class="card-img-top" src="holder.js/100px180/" alt="">
-  <div class="card-body">
-    <h4 class="card-title">Title</h4>
-    <p class="card-text">Text</p>
-  </div>
+{{#section 'css'}}
+<link rel="stylesheet" href="/stylesheets/base.css">
+<link rel="stylesheet" href="/stylesheets/main.css">
+{{/section}}
+<div class="app">
+    <!-- Header NavBar -->
+    <div class="header">
+        <div class="header-wrap">
+            <div class="top">
+                <div class="join-us-wrap">
+                    <div class="join-us">
+                        <a href="#" class="link">Join Us</a>
+                    </div>
+                    <div class="join-us-icon">
+                        <i class="icon fas fa-snowboarding"></i>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="modal-1" data-toggle="modal" data-target="#staticBackdrop">
+                        <span class="content">Join/Log In With Us
+                        </span>
+                        <!-- Modal for Login -->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                            tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="dialog">
+                                <div class="content">
+                                    <div class="header-1">
+                                        <a href="index.html" class="close">
+                                            <i class="fas fa-times-circle"></i>
+                                        </a>
+                                        <div class="icon">
+                                            <i class="icon fas fa-shoe-prints"></i>
+                                        </div>
+                                        <div class="title" id="staticBackdropLabel">
+                                            LOGIN FOR EVERYTHING
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <input type="email" class="user-name" placeholder="Email Address">
+                                        <input type="password" class="password" placeholder="Your PassWord">
+                                        <div class="wrap">
+                                            <div class="keep">
+                                                <input type="checkbox" class="keep-sign">
+                                                <p class="title"> Keep me signed in</p>
+                                            </div>
+                                            <a href="#" class="forgot">
+                                                Forgotten your password?
+                                            </a>
+                                        </div>
+                                        <div class="warning">
+                                            By logging in, you agree to <a href="#"><u>Soraly's Policy</u></a> and
+                                            <a href="#"><u>Terms of Use</u></a>
+                                        </div>
+                                    </div>
+                                    <div class="footer-2">
+                                        <a href="#" class="link">
+                                            <div class="button">LOGIN</div>
+                                        </a>
+                                        <div class="sign-up">
+                                            Not a member?
+                                            <a href="#" class="link">Join us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="help">
+                        <span class="content">Help</span>
+                        <div class="drop-down">
+                            <ul class="list">
+                                <li class="item"> <a class="content" href="#">How to eat = đũa</a></li>
+                                <li class="item"> <a class="content" href="#">How to eat = miệng</a></li>
+                                <li class="item"> <a class="content" href="#">Cách tắm </a></li>
+                                <li class="item"> <a class="content" href="#">Cách đi vệ sinh</a></li>
+                                <li class="item"> <a class="content" href="#">Cách đi</a></li>
+                                <li class="item"> <a class="content" href="#">Cách ngủ</a></li>
+                                <li class="item"> <a class="content" href="#">Cách khóc</a></li>
+                                <li class="item"> <a class="content" href="#">Cách cười</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <i class="icon fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="location">
+                        <a aria-label="dumemay" title="Selected Location: VN" class="wrap">
+                            <i class="icon fas fa-street-view"></i>
+                            <span class="content">VietNam</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <a href="index.html" class="brand">
+                    <i class="icon fas fa-shoe-prints"></i>
+                </a>
+                <div class="list">
+                    <a href="#" class="item">MEN</a>
+                    <a href="#" class="item">WOMAN</a>
+                    <a href="#" class="item">KIDS</a>
+                    <a href="#" class="item">CUSTOMISE</a>
+                    <a href="#" class="item">LAUNCH CALENDAR</a>
+                    <a href="#" class="item">SALE</a>
+                </div>
+                <div class="search">
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fas fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                                aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <p class="lead">We’re currently experiencing some technical difficulties on our website. If you’re
+                unable to check out at this moment, please try again later. We apologize for the inconvenience
+                caused.</p>
+        </div>
+    </div>
+    <!-- Container -->
+    <div class="container-fluid">
+        <div class="container-app container">
+            <!-- Launch -->
+            <div class="app-content">
+                <div class="img-wrap">
+                    <a href="index.html" class="link" aria-label="Welcome to Summoner's Rift">
+                        <img src="/images/launchshoe1.jpg" alt="This is Shoes" class="img">
+                    </a>
+                </div>
+            </div>
+            <!-- Launch Content -->
+            <div class="launch">
+                <div class="content">
+                    <a href="#" class="wrap">
+                        <div class="main">
+                            <p class="title">BETRUE 2020 COLLECTION</p>
+                        </div>
+                        <div class="extra">
+                            <p class="title">
+                                Featuring icons that mark the next top step in our individual and collective journeys.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="button-wrap">
+                    <div class="wrap">
+                        <a href="#" class="btn btn-primary button">
+                            <p>Soraly Shop</p>
+                        </a>
+                        <a href="#" class="button btn btn-primary">
+                            <p>Explore the Collection</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Main  -->
+            <div class="main">
+                <div class="trending">
+                    <div class="header-trending">
+                        <p class="title">Trending</p>
+                    </div>
+                    <div class="container-wrap">
+                        <div class="content grid-row col-sm-12">
+                            <a href="#" class="left col-lg-6 col-md-6 col-sm-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0">
+                                <img src="/images/bear5.jpg" alt="">
+                                <div class="fixed">
+                                    <div class="layer-ps">
+                                        <div class="title">
+                                            <p>Throwback Threads</p>
+                                        </div>
+                                        <div class="button btn">
+                                            <p>Shop</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="right col-lg-6 col-md-6 col-sm-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0">
+                                <img src="/images/bear6.jpg" alt="">
+                                <div class="fixed">
+                                    <div class="layer-ps">
+                                        <div class="title">
+                                            <p>Nike Bras: Stronger with Support</p>
+                                        </div>
+                                        <div class="button btn">
+                                            <p>Shop</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="Featured">
+                    <div class="header-featured">
+                        <p class="title">Featured</p>
+                    </div>
+                    <div class="container-wrap">
+                        <div class="content">
+                            <a href="#" class="full">
+                                <video src="/assets/vid/balle.mp4" autoplay muted controls:0 loop></video>
+                                <div class="fixed">
+                                    <div class="layer-ps">
+                                        <div class="title">
+                                            <h1>SERENITY IN MOTION</h1>
+                                            <p>The Soraly Icon Clash Collection</p>
+                                        </div>
+                                        <div class="button btn">
+                                            <p>Shop</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Member Access -->
+                <div class="access">
+                    <div class="header-access">
+                        <p class="title">Member Access</p>
+                    </div>
+                    <div class="container-wrap">
+                        <div class="grid-row">
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/launchshoe1.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">The Nike Sportswear Short-Sleeve Top</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">9.000.000đ</span>
+                                            <span class="home-product-item__price-current">3.359.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 78</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Nike</span>
+                                            <span class="home-product-item__origin-country">VietNam</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                69%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes2.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">Soft leather heeled shoe NY 2020</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">2.000.000đ</span>
+                                            <span class="home-product-item__price-current">1.599.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 128</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">NY</span>
+                                            <span class="home-product-item__origin-country">American</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                20%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes3.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">Korean Domba Sneaker Shoes Auth</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">960.000đ</span>
+                                            <span class="home-product-item__price-current">672.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 18</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Sneaker</span>
+                                            <span class="home-product-item__origin-country">Korean</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                30%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes4.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">[Freeship genuine shoes] MLB mickey Korean shoes</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">2.195.000đ</span>
+                                            <span class="home-product-item__price-current">2.050.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 102</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">MLB</span>
+                                            <span class="home-product-item__origin-country">Korean</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                7%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes5.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">
+                                            Biti's Hunter Huong Giang Go For Love Shoes DSWH03000TRG / DSMH03000TRG (White)</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">900.000đ</span>
+                                            <span class="home-product-item__price-current">899.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 314</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Biti's</span>
+                                            <span class="home-product-item__origin-country">VietNam</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                1%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes6.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">MIDAZ sneaker - W00029 - HD20A76</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">320.000đ</span>
+                                            <span class="home-product-item__price-current">256.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 1k3</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Sneaker</span>
+                                            <span class="home-product-item__origin-country">France</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                20%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes7.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">Japan Ulzzang Women's Lacing Shoes - DCMMMAN</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">300.000đ</span>
+                                            <span class="home-product-item__price-current">280.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 35</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Ulzzang</span>
+                                            <span class="home-product-item__origin-country">Japan</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                6%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes8.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">Super BATA Boat Shoes For Convenience For Women.</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">240.000đ</span>
+                                            <span class="home-product-item__price-current">99.000đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 3k1</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Bata</span>
+                                            <span class="home-product-item__origin-country">China</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                59%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="grid-column-2-4">
+                                <a href="" class="home-product-item-link">
+                                    <div class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/images/shoes9.jpg);">
+                                        </div>
+                                        <h4 class="home-product-item__name">Women's Sports Shoes With Mesh Sole Color - CLMMMAN</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">250.000đ</span>
+                                            <span class="home-product-item__price-current">137.500đ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__wrap-rating">
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__ratied fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">Sold 184</span>
+                                            </div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-storename">Nike</span>
+                                            <span class="home-product-item__origin-country">VietNam</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Favourite</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">
+                                                45%
+                                            </span>
+                                            <p class="home-product-item__sale-off-label">SALE</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More Products -->
+                <div class="more">
+                    <div class="header-more">
+                        <p class="title">More Products</p>
+                    </div>
+                    <div class="container-wrap">
+                        <div class="content grid-row col-sm-12">
+                            <a href="#" class="left col-lg-4 col-md-12 col-sm-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0">
+                                <img src="/images/bear1.jpg" alt="">
+                                <div class="fixed">
+                                    <div class="layer-ps">
+                                        <div class="button btn">
+                                            <p>Man's</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="left col-lg-4 col-md-12 col-sm-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0">
+                                <img src="/images/bear2.jpg" alt="">
+                                <div class="fixed">
+                                    <div class="layer-ps">
+                                        <div class="button btn">
+                                            <p>Woman's</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="left col-lg-4 col-md-12 col-sm-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-0">
+                                <img src="/images/bear3.jpg" alt="">
+                                <div class="fixed">
+                                    <div class="layer-ps">
+                                        <div class="button btn">
+                                            <p>Kid's</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<footer class="footer">
+    <div class="grid-width">
+        <div class="grid-row">
+            <div class="grid-column-3-6">
+                <div class="wrap">
+                    <a href="#" class="heading">
+                        <h3>FIND A STORE</h3>
+                    </a>
+                    <a href="#" class="heading-1">
+                        <h3>BECOME A MEMBER</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="grid-column-3-6">
+                <a href="#" class="heading">
+                    <h3>GET HELP</h3>
+                </a>
+                <ul class="footer-list">
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Order Status</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Delivery</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Returns</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Payment Options</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid-column-3-6">
+                <a href="#" class="heading">
+                    <h3>ABOUT SORALY </h3>
+                </a>
+                <ul class="footer-list">
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">News</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Careers</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Investors</a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="#" class="footer-link">Sustainability</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid-column-3-6">
+                <h3 class="heading">Follow us on</h3>
+                <ul class="footer-list">
+                    <li class="footer-item">
+                        <a href="" class="footer-link">
+                            <i class="footer-icon fab fa-facebook"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">
+                            <i class="footer-icon fab fa-instagram-square"></i>
+                            Instagram
+                        </a>
+                    </li>
+                    <li class="footer-item">
+                        <a href="" class="footer-link">
+                            <i class="footer-icon fab fa-linkedin"></i>
+                            Linkedln
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="grid-width">
+            <div class="grid-row">
+                <div class="license">Single-member limited liability company Soraly</div>
+                <div class="license">Address: Floor 4, 59/5 Nguyen Hong Đao, Ward 14, District Tan Binh,
+                    Ho Chi Minh City - Support switchboard: 0358090295 - Email: lequangnam1617@gmail.com</div>
+                <div class="license">Business Code: 245376230 Issued by the Department of Planning and Investment of Ho Chi Minh City 28/06/2020</div>
+                <div class="license"> © 2020 - Copyright by Single-member limited liability company Soraly</div>
+            </div>
+        </div>
+    </div>
+</footer>

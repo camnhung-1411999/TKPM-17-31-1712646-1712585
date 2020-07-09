@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 var cookieParser = require('cookie-parser')
 var exphbs  = require('express-handlebars');
 var session = require('express-session');
-const express_handlebars_sections = require('express-handlebars-sections');
+var hbs_sections = require("express-handlebars-sections");
 import path from 'path'
 
 import router from './src/routes/index'
@@ -17,14 +17,17 @@ app.engine('hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, '/src/views/layouts'),
     partialsDir: path.join(__dirname, '/src/views'),
+    helpers:{
+        section: hbs_sections()
+    }
 }));
 
-app.use(express.json());
+app.use(express.json({limit:'50mb'}));
 app.use(express.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/src/public')));
 app.use(bodyParser.urlencoded({
     extended: false
 }));

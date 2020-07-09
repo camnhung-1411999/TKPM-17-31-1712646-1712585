@@ -1,34 +1,40 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var user_service_1 = __importDefault(require("../services/user.service"));
-var UserController = /** @class */ (function () {
-    function UserController() {
-    }
-    UserController.list = function () {
+const user_service_1 = __importDefault(require("../services/user.service"));
+const auth_1 = __importDefault(require("../utils/auth"));
+class UserController {
+    static list() {
         return user_service_1.default.list();
-    };
-    UserController.find = function (req) {
-        var user = req.params.username;
-        return user_service_1.default.find(user);
-    };
-    UserController.create = function (req) {
-        var user = __assign({}, req.body);
-        return user_service_1.default.create();
-    };
-    return UserController;
-}());
+    }
+    static find(req) {
+        let username = req.params.username;
+        return user_service_1.default.find(username);
+    }
+    static create(req) {
+        let user = {
+            ...req.body
+        };
+        Promise.resolve(auth_1.default.hashPassword(user.password)).then((result) => {
+            user.password = result;
+        });
+        return user_service_1.default.create(user);
+    }
+    static update(req) {
+        if (req.body.password === undefined) {
+            return user_service_1.default.update(req.params.username, req.body);
+        }
+        else {
+            const password = auth_1.default.hashPassword(req.body.password);
+            return user_service_1.default.update(req.params.username, {
+                password: password
+            });
+        }
+    }
+    static delete(req) {
+        return user_service_1.default.delete(req.params.username);
+    }
+}
 exports.default = UserController;

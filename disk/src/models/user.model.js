@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var mongoose_1 = __importDefault(require("mongoose"));
-var userSchema = new mongoose_1.default.Schema({
+const mongoose_1 = __importDefault(require("mongoose"));
+const userSchema = new mongoose_1.default.Schema({
     username: {
         type: String,
         unique: true
@@ -37,5 +37,5 @@ var userSchema = new mongoose_1.default.Schema({
 //     });
 // };
 //userSchema.methods.comparePassword = comparePassword;
-var UserCollection = mongoose_1.default.model("user", userSchema);
+const UserCollection = mongoose_1.default.model("user", userSchema);
 exports.default = UserCollection;

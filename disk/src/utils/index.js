@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Util = {
+const Util = {
     mongo: {
         host: process.env.MONGODB_HOST || '',
         user: process.env.MONGODB_USER || 'root',
