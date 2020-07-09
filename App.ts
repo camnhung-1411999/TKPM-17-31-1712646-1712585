@@ -1,5 +1,5 @@
-import express from 'express'
-import bodyParser from 'body-parser'
+import express =require('express');
+import bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 var exphbs  = require('express-handlebars');
 var session = require('express-session');
