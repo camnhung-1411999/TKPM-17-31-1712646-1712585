@@ -4,16 +4,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const product_service_1 = __importDefault(require("../services/product.service"));
+const express_1 = __importDefault(require("express"));
+// import { RequestHandler, Request, Response, NextFunction } from 'express-serve-static-core';
+const fileUpload = require("express-fileupload");
+var app = express_1.default.Router();
+app.use(fileUpload({
+    useTempFiles: true,
+}));
 class ProductController {
-    static list(req, res) {
-        // var products:Promise<IProduct[]| null> =  productService.list();
-        // console.log(products);
+    static products(req, res) {
         Promise.resolve(product_service_1.default.list().then(result => res.send(result)));
+        res.render('products/products', { title: "Sản phẩm" });
     }
     static find(req, res) {
         let idproduct = req.params.product;
         let product = product_service_1.default.find(idproduct);
-        // Promise.resolve(service.list()).then(result=>console.log(result));
         res.send("find product");
     }
     static create(req, res) {
@@ -27,6 +32,20 @@ class ProductController {
     }
     static delete(req) {
         return product_service_1.default.delete(req.params.product);
+    }
+    static upload(req, res) {
+        res.render('products/upload', { title: "Upload New Product" });
+    }
+    static postUpload(req, res) {
+        console.log(req.files);
+        if (typeof req.files === 'object') {
+            const file = req.files.image;
+            console.log(file);
+        }
+        else {
+            console.log("nothing");
+        }
+        res.send("post upload");
     }
 }
 exports.default = ProductController;

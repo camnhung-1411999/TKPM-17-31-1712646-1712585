@@ -55,7 +55,7 @@
 .header .header-wrap .bottom .search .form-inline .input-group{width: 100%;height: 40px;z-index: 3;}
 .header .header-wrap .bottom .search .form-inline .input-group .form-control{font-size: 1.4rem;}
 /* Jumbotron */
-.jumbotron{margin-top: 115px;height: 90px;width: 100%;border-bottom: 1px solid rgba(0,0,0,0.1);margin-bottom: 0 !important;}
+.jumbotron{height: 90px;width: 100%;border-bottom: 1px solid rgba(0,0,0,0.1);margin-bottom: 0 !important;}
 .jumbotron .container .lead{font-size: 1.3rem;text-align: center;margin-bottom: 20px;}
 /* Launch */
 .container-fluid{padding-right: 0px !important;padding-left: 0px !important;border-bottom: 4px solid #4c6ef5;}

@@ -1,0 +1,25 @@
+
+.categories{
+    width:100%;
+    margin-top: 50px;
+    /* top: 25%; */
+}
+.categories .card{
+    box-shadow: 1px 2px 3px rgba(80, 80, 80, 0.76);
+    border:0;
+}
+
+.categories .card .card-header{
+    padding: 20px;
+    font-size: 3.5em;
+}
+.categories .card ul li{
+    padding: 20px;
+    font-size: 3em;
+    border:0;
+    transition: padding 0.3s;
+}
+.categories .card ul li:hover{
+    color: rgb(0, 238, 255);
+    padding: 20px 30px;
+}
