@@ -5,7 +5,7 @@
   "repository": "",
   "scripts": {
     "tsc": "tsc",
-    "dev": "nodemon --ignore dist/ --exec ts-node src/index.ts",
+    "dev": "nodemon --ignore dist/ --exec ts-node index.ts",
     "build": "npx tsc --skipLibCheck",
     "start": "npx tsc --skipLibCheck && node ./disk/index.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",

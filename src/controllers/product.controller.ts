@@ -1,14 +1,6 @@
 import productService from "../services/product.service";
 import { IProduct } from "../models/product.model";
 import express,{ Request, Response } from "express";
-// import { RequestHandler, Request, Response, NextFunction } from 'express-serve-static-core';
-import fileUpload = require('express-fileupload');
-var app = express.Router();
-
-type UploadedFile = fileUpload.UploadedFile;
-app.use(fileUpload({
-  useTempFiles: true,
-}))
 class ProductController {
   static products(req:Request, res:Response) {
     Promise.resolve(productService.list().then(result=>res.send(result)));
@@ -41,13 +33,6 @@ class ProductController {
   }
 
   static postUpload(req: Request, res:Response){
-    console.log(req.files);
-    if (typeof req.files === 'object') {
-      const file = req.files.image;
-      console.log(file);
-    }else{
-      console.log("nothing");
-    }
     res.send("post upload");
   }
 }
