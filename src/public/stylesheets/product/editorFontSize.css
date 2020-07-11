@@ -1,0 +1,22 @@
+label{
+    font-size: 14px;
+}
+.form-control{
+    height: 35px;
+    font-size: 16px;
+}
+.col-lg-6:first-child{
+    padding-left: 0;
+}
+.col-lg-6.second{
+    padding-right: 0;
+}
+textarea{
+    font-size: 16px;
+}
+
+.btn-info{
+    width: 40%;
+    font-size: 18px;
+    padding: 10px;
+}

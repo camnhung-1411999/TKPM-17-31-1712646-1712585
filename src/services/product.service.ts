@@ -7,7 +7,7 @@ class productService {
     static async find(product: string): Promise<IProduct | null> {
         return await ProductCollection.findOne({ idproduct: product });
     }
-    static async create(product: IProduct): Promise<IProduct | null> {
+    static async create(product: IProduct): Promise<IProduct> {
         return await ProductCollection.create(product);
     }
     static async update(idproduct: String, product: IProduct): Promise<IProduct | null> {

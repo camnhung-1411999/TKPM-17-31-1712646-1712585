@@ -1,7 +1,81 @@
-<form method="post">
-    <div class="form-group">
-        <label for=""></label>
-        <input type="file" style="font-size:20px" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+{{#section 'css'}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/javascripts/product/editor.js"></script>
+
+<script>
+      $(document).ready(function() {
+        $("#txtEditor").Editor();
+       
+        $('#manmeo').click(()=>{
+            var temp =  $('.Editor-editor').html();
+            $("#html").html(temp);
+        })
+    });
+    
+</script>
+<link href="/stylesheets/product/editor.css" rel="stylesheet" />
+<link href="/stylesheets/product/editorFontSize.css" rel="stylesheet" />
+{{/section}}
+<div class="row">
+    <div class="col-8 offset-2">
+
+        <form method="post" novalidate enctype="multipart/form-data">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2 class="demo-text">Upload new product</h2>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="">Id product</label>
+                                    <input required type="text" class="form-control" name="idproduct" id="" aria-describedby="title" placeholder="id product">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 second">
+                                <div class="form-group">
+                                    <label for="">Price</label>
+                                    <input required type="Number" class="form-control" name="price" id="" aria-describedby="title" placeholder="price product">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 third">
+                                <div class="form-group">
+                                    <label for="">Name product</label>
+                                    <input required type="text" class="form-control" name="name" id="" aria-describedby="title" placeholder="name product">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 second">
+                                <div class="form-group">
+                                    <label for="">Select Sizes</label>
+                                    <select class="custom-select custom-select-lg" name="size" id="" multiple>
+                                        <option value="36">36</option>
+                                        <option value="36.5">36.5</option>
+                                        <option value="37">37</option>
+                                        <option value="37.5">37.5</option>
+                                        <option value="38">38</option>
+                                        <option value="38.5">38.5</option>
+                                        <option value="39">39</option>
+                                        <option value="40">40</option>
+                                        <option value="41">41</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12 nopadding">
+                                <div class="form-group">
+                                    <label for="">Image</label>
+                                    <input type="file" mutiple style="font-size:15px" class="form-control-file" name="avatar">
+                                </div>
+                                <label for="">Nội dung</label>
+                                <textarea id="txtEditor"></textarea>
+                                <textarea name="decription" cols="30" rows="10" id="html" hidden></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn-info" id="manmeo">Create new product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>

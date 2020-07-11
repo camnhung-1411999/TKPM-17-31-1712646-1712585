@@ -8,7 +8,7 @@ class userService{
     static async find(user: string): Promise<IUser | null>{
         return await UserCollection.findOne({username: user});
     }
-    static async create(user: IUser): Promise<IUser | null>{
+    static async create(user: IUser): Promise<IUser>{
         return await UserCollection.create(user);
     }
     static async update(username:string, user: Object): Promise<IUser>{

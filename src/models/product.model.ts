@@ -1,23 +1,28 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-export type IProduct = mongoose.Document &{
-    idproduct: String,
-    name: String,
-    image: String,
-    decription: String,
-    price: String,
+export type IProduct = mongoose.Document & {
+  idproduct: String;
+  name: String;
+  image: String;
+  decription: String;
+  price: String;
+  size: [];
 };
 
-const productSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema(
+  {
     idproduct:{
-        type: String,
-        unique: true
+        type:String,
+        unique: true,
     },
     name: String,
     image: String,
     decription: String,
-    price: String
-}, {timestamps: true});
+    price: String,
+    size: [],
+  },
+  { timestamps: true }
+);
 
-const ProductCollection = mongoose.model<IProduct>('products',productSchema);
+const ProductCollection = mongoose.model<IProduct>("product", productSchema);
 export default ProductCollection;

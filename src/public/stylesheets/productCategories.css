@@ -1,25 +1,30 @@
 
 .categories{
     width:100%;
-    margin-top: 50px;
+    margin-top: 60px;
     /* top: 25%; */
-}
-.categories .card{
-    box-shadow: 1px 2px 3px rgba(80, 80, 80, 0.76);
-    border:0;
 }
 
 .categories .card .card-header{
-    padding: 20px;
-    font-size: 3.5em;
+    padding: 3px;
+    font-size: 14px;
 }
 .categories .card ul li{
-    padding: 20px;
-    font-size: 3em;
+    padding: 10px;
+    font-size: 14px;
     border:0;
     transition: padding 0.3s;
 }
 .categories .card ul li:hover{
-    color: rgb(0, 238, 255);
-    padding: 20px 30px;
+    color: rgb(158, 158, 158);
+    padding: 10px 20px;
+}
+.categories .card ul li:first-child:hover{
+    color: rgb(158, 158, 158);
+    padding: 10px;
+}
+.categories .card{
+    border-left: 0;
+    border-right:0;
+    border-bottom: 8px solid rgba(184, 184, 184, 0.644);
 }

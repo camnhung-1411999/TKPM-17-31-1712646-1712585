@@ -1,10 +1,10 @@
 #products{
     padding: 0 50px;
 }
-.col-9 .row .col-4 .home-product-item{
+.col-10 .row .col-3 .home-product-item{
     box-shadow: 1px 2px 3px rgba(80, 80, 80, 0.76);
 }
-.row .col-9 .row{
+.row .col-10 .row{
     padding-top: 50px
 }
 .sortby{
@@ -17,4 +17,11 @@
 
 .sortby .dropdown-item{
     font-size: 15px;
+}
+
+#image img{
+    width:100%;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }

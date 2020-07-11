@@ -4,14 +4,9 @@ var cookieParser = require('cookie-parser')
 var exphbs  = require('express-handlebars');
 var session = require('express-session');
 var hbs_sections = require("express-handlebars-sections");
+const Handlebars = require('handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 import path from "path";
-
-var cloudinary = require("cloudinary");
-cloudinary.config({
-  cloud_name: "hoang-man-1108",
-  api_key: "185155598515121",
-  api_secret: "eEp6LeeY1ak80gVdSmKpb5wMHqY",
-});
 
 import router from "./src/routes/index";
 
@@ -26,6 +21,7 @@ app.engine(
     defaultLayout: "main",
     layoutsDir: path.join(__dirname, "./src/views/layouts"),
     partialsDir: path.join(__dirname, "./src/views/partials"),
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
     helpers: {
       section: hbs_sections(),
     },
