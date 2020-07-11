@@ -1,0 +1,133 @@
+<div class="container-fluid" id="content" style="margin-top:150px !important ; width:70%!important;margin-bottom:100px; border-bottom:0px !important">
+
+    <div id="titleProfileInfo" class="row ">
+        <h4 class="col" style="color: rgb(159, 159, 160) !important;font-size:30px !important;">LIST CATEGORIES</h4>
+    </div>
+    <button type="button" class="btn btn-dark" style="float: right!important; margin-bottom:50px; font-size:20px"
+        data-toggle="modal" data-target="#ModalInsert">
+        Insert category
+    </button>
+    <div class="modal fade" id="ModalInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalCenterTitle">Enter name category </h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post"style="margin-left:10px!important">
+                    <h3 for="" class="mt-5">Name category:</h3>
+                    <input type="text" name="insert" class="btn btn-secondary"
+                        style="width:467px!important; height:50px!important; font-size:15px">
+                    <h3 for="" class="mt-5">Id category:</h3>
+                    <input type="text" name="idcat" class="btn btn-secondary"
+                        style="width:467px!important;height:50px !important; font-size:15px">
+
+                    <div class="modal-footer mt-5">
+                        <button type="button"style="width:80px" class="btn btn-secondary btn-lg" data-dismiss="modal">No</button>
+                        <input type="submit" style="width:80px" formaction="/../users/insertcategory" class="btn btn-outline-dark btn-lg" value="Yes">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <table class="table table-sm txt-center table-hover" id="listStore">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align: center!important;font-size:15px !important;">Rename</th>
+                <th scope="col" style="text-align: center!important;font-size:15px !important;">Name category</th>
+                <th scope="col" style="text-align: center!important;font-size:15px !important;">Id</th>
+                <th scope="col" style="text-align: center!important;font-size:15px !important;"></th>
+
+            </tr>
+        </thead>
+
+        <tbody id="productList">
+            <tr>
+                <td style="text-align: center!important;padding-top:10px">
+                    {{!-- <button type="button" class="btn btn-primary" >
+                        Rename
+                    </button> --}}
+                    <a class="fa fa-edit" style=" font-size: 15px" aria-hidden="true" data-toggle="modal"
+                        data-target="#ModalRename"></a>
+                    <div class="modal fade" id="ModalRename" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalCenterTitle">RENAME CATEGORY!</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form method="post">
+                                    <h3 for="">Old name category:</h3>
+                                    <input type="text" name="oldcate" class="btn btn-secondary"
+                                        style="margin-left:10px!important;width:420px!important;height:30px; font-size: 15px">
+                                    <h3 for="">New name category:</h3>
+                                    <input type="text" name="newcate" class="btn btn-secondary"
+                                        style="margin-left:10px!important;width:420px!important;height:30px;font-size:15px">
+                                    <h3 for="">New id category</h3>
+                                    <input type="text" name="newid" class="btn btn-secondary"
+                                        style="margin-left:10px!important;width:420px!important;height:30px;font-size:15px">
+
+                                    <div class="modal-footer mt-5" >
+                                        <button type="button" class="btn btn-secondary btn-lg"
+                                            data-dismiss="modal">Cancel</button>
+                                        <input type="submit" formaction="/../users/renamecate" class="btn btn-outline-dark btn-lg"
+                                            value="Confirm">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+                <td style="text-align: center!important; font-size:15px;padding-top:10px ">
+                    {{!-- {{this.cate}} --}} Cẩm nhung
+                </td>
+
+                <td style="text-align: center!important; font-size:15px;padding-top:10px">
+                    {{!-- {{this.idcat}} --}} cate id
+                </td>
+
+
+                {{!-- <td style="text-align: center!important;color: rgb(159, 159, 160) !important;">
+                    This category existed product
+                </td> --}}
+                <td style="text-align: center!important;padding-top:5px">
+                    <button type="button" class="btn btn-outline-dark btn-lg" data-toggle="modal" data-target="#ModalDeleteCate">
+                        Delete
+                    </button>
+                    <div class="modal fade" id="ModalDeleteCate" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="exampleModalCenterTitle">CONFIRM DELETE?</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form method="post">
+                                    <h4 for="">Name category</h4>
+                                    <input type="text" name="cate" class="btn btn-secondary mt-3"
+                                        style="width:450px!important; height:30px; font-size:15px">
+                                    <div class="modal-footer mt-3">
+                                        <button type="button" class="btn btn-secondary btn-lg"
+                                            data-dismiss="modal">Cancel</button>
+                                        <input type="submit" formaction="/../users/deletecate" class="btn btn-outline-dark btn-lg"
+                                            value="Confirm">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
