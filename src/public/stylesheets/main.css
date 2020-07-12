@@ -11,8 +11,8 @@
 .header .top .join-us-wrap .join-us-icon .icon:hover{color: blue;}
 .header .top .right{display: flex;width: 50%;float: right;padding-left: 16%;}
 .header .top .right .modal-1,.header .top .right .help,.header .top .right .cart,.header .top .right .location{width: 48%;height: 40px;border-bottom: 0;display: inline-flex;justify-content: center;text-decoration: none;}
-.header .top .right .modal-1 .content,.header .top .right .help .content,.header .top .right .help .content,.header .top .right .location .content{font-size: 1.4rem;color: rgba(0,0,0,0.5);margin-top: 8px;}
-.header .top .right .modal-1 .content:hover,.header .top .right .help .content:hover,.header .top .right .help .content:hover,.header .top .right .location .content:hover,.header .top .right .cart .icon:hover,.header .top .right .location .icon:hover{color: blue;cursor: pointer;}
+.header .top .right .modal-1 .content, .header .top .right .modal-1 .content a,.header .top .right .help .content,.header .top .right .help .content,.header .top .right .location .content{font-size: 1.4rem;color: rgba(0,0,0,0.5);margin-top: 8px;}
+.header .top .right .modal-1 .content:hover,.header .top .right .modal-1 .content a:hover,.header .top .right .help .content:hover,.header .top .right .help .content:hover,.header .top .right .location .content:hover,.header .top .right .cart .icon:hover,.header .top .right .location .icon:hover{color: blue;cursor: pointer;}
 .header .top .right .help{width: 15%;position: relative;border-bottom: 2px solid blue;}
 .header .top .right .cart{width: 10%;}
 .header .top .right .location{width: 26%;}
@@ -149,3 +149,7 @@
 .footer-icon{margin-right: 4px;}
 .footer-bottom{border-top: 1px solid rgba(255,255,255,0.05);margin-top: 36px;background-color: #000;}
 .footer-bottom .license{display: block;width: 100%;text-align: center;margin-top: 10px;font-size: 1.2rem;color: #fff;}
+
+a{
+    text-decoration: none !important;
+}

@@ -14,10 +14,11 @@ class UserController {
         let user: IUser = {
             ...req.body
         }
+        user.name = req.body.firstName + ' ' + req.body.lastName;
         Promise.resolve(Password.hashPassword(user.password)).then((result) => {
             user.password = result;
+            return userService.create(user);
         });
-        return userService.create(user);
     }
     static update(req: Request) {
         if (req.body.password === undefined) {

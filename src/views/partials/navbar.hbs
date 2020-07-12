@@ -11,8 +11,12 @@
             </div>
             <div class="right">
                 <div class="modal-1" data-toggle="modal" data-target="#staticBackdrop">
-                    <span class="content">Join/Log In With Us
-                    </span>
+                    {{#if user.username}}
+                    <span class="content">{{user.username}}</span>
+                    <span class="content ml-5"> <a href="/../auth/logout">Log out</a></span>
+                    {{else}}
+                    <span class="content"><a href="/../auth/login">Join/Log In With Us</a></span>
+                    {{/if}}
                     <!-- Modal for Login -->
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
                         tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
