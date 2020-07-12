@@ -2,11 +2,11 @@
     <div class="card">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                Categories <i class="fas fa-minus float-right"></i>
+              <a href="/products" style="color:{{#if all}} blue; font-weight:550{{else}} black{{/if}}" >Categories <i class="fas fa-minus float-right"></i></a>
             </li>
-            <li class="list-group-item">Men</li>
-            <li class="list-group-item">Women</li>
-            <li class="list-group-item">Children</li>
+            <li class="list-group-item" ><a href="/products/Men" style="color:{{#if Men}} blue; font-weight:550{{else}} black{{/if}}"  >Men</a></li>
+            <li class="list-group-item" ><a href="/products/Women" style="color: {{#if Women}} blue; font-weight:550 {{else}}black{{/if}}">Women</a></li>
+            <li class="list-group-item" ><a href="/products/Kids" style="color:{{#if Kids}} blue; font-weight:550 {{else}} black {{/if}}">Kids</a></li>
         </ul>
     </div>
 </div>

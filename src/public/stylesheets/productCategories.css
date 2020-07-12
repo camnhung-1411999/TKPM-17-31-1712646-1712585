@@ -19,6 +19,12 @@
     color: rgb(158, 158, 158);
     padding: 10px 20px;
 }
+.categories .card ul li a{
+    text-decoration: none;
+}
+.categories .card ul li a:hover{
+    color: rgb(158, 158, 158) !important;
+}
 .categories .card ul li:first-child:hover{
     color: rgb(158, 158, 158);
     padding: 10px;

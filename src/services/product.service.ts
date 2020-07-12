@@ -4,8 +4,11 @@ class productService {
     static async list(): Promise<IProduct[] | null> {
         return await ProductCollection.find();
     }
-    static async find(product: string): Promise<IProduct | null> {
-        return await ProductCollection.findOne({ idproduct: product });
+    static async listFollowType(type:String): Promise<IProduct[] | null> {
+        return await ProductCollection.find({type});
+    }
+    static async find(type: string,idproduct: string): Promise<IProduct | null> {
+        return await ProductCollection.findOne({ idproduct: idproduct });
     }
     static async create(product: IProduct): Promise<IProduct> {
         return await ProductCollection.create(product);

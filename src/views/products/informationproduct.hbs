@@ -1,0 +1,658 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/stylesheets/product/infoproduct.css">
+{{/section}}
+<!-- Trang bán hàng sản phẩm cụ thể -->
+<div class="app__container">
+    <div class="grid__width">
+        <div class="grid__row app__content">
+            <!-- Chỉ mục đường dẫn -->
+            <div class="chi-muc-link">
+                <a href="/" class="chi-muc">OS shoes<i class="angle-right-css fas fa-angle-right"></i></a>
+                <a href="/products" class="chi-muc">Products<i
+                        class="angle-right-css fas fa-angle-right"></i></a>
+                <a href="/products/Kids" class="chi-muc">Kids<i class="angle-right-css fas fa-angle-right"></i></a>
+                <span href="/products/Kids/id" class="chi-muc-cuoi">this is name product</span>
+            </div>
+
+            <div class="container">
+                <!-- Thông tin của sản phẩm -->
+                <div class="grid__row thong-tin-san-pham">
+                    <div class="thong-tin-hinh-anh-va-lien-he">
+                        <div class="hinh-anh-comp">
+                            <div class="hinh-anh-lon">
+                                <img src="{{product.image}}" alt="">
+                            </div>
+
+                        </div>
+                        <div class="lien-he">
+                            <div class="lien-he-chia-se">
+                                <div class="abcxyz">
+                                    Chia sẻ :
+                                </div>
+                                <a href="#" class="share-on-gigido"><i class="fab fa-facebook-messenger"></i></a>
+                                <a href="#" class="share-on-gigido"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="share-on-gigido"><i class="fab fa-google"></i></a>
+                                <a href="#" class="share-on-gigido"><i class="fab fa-twitter-square"></i></a>
+                            </div>
+                            <div class="soluongreaction">
+                                <a href="#">
+                                    <svg width="24" height="26" class="trai-tim-ne">
+                                        <path
+                                            d="M19.469 1.262c-5.284-1.53-7.47 4.142-7.47 4.142S9.815-.269 4.532 1.262C-1.937 3.138.44 13.832 12 19.333c11.559-5.501 13.938-16.195 7.469-18.07z"
+                                            stroke="#FF424F" stroke-width="1.5" fill="none" fill-rule="evenodd"
+                                            stroke-linejoin="round">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <span class="da-thich">Đã thích (1k2)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phan-nay-la-thong-tin">
+                        <div class="ten-sach">
+                            <svg width="34" height="17" class="logo-mall">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path
+                                        d="M.796 2.905A2 2 0 0 1 2.798.911h28.995a2 2 0 0 1 2.003 1.994v12.012a2 2 0 0 1-2.003 1.994H2.798a2 2 0 0 1-2.002-1.994V2.905z"
+                                        fill="#D0011B"></path>
+                                    <g fill="#fff">
+                                        <path
+                                            d="M25.81 10.976h.002c0 .823.31 1.359.931 1.609v.002a.847.847 0 0 1-.63 1.572l-.002.003c-1.332-.464-1.998-1.51-1.998-3.141h.004V4.856a.846.846 0 0 1 1.693 0v6.12zM29.516 10.976h.003c0 .823.31 1.359.93 1.609v.002a.847.847 0 0 1-.63 1.572l-.002.003c-1.332-.464-1.998-1.51-1.998-3.141h.004V4.856a.846.846 0 1 1 1.693 0v6.12zM20.78 7.574c.011-.413.418-.82.918-.82.507 0 .918.418.918.837V13.3c0 .419-.41.826-.918.826-.446 0-.818-.315-.9-.676a3.57 3.57 0 0
+                                            1-2.215.768c-1.999 0-3.689-1.644-3.689-3.673 0-2.028 1.69-3.756 3.689-3.756.826 0 1.588.295 2.197.786zm-.08 2.919a2.074 2.074 0 1 0-4.146 0 2.072 2.072 0 1 0 4.145 0z">
+                                        </path>
+                                        <path
+                                            d="M3.8 4.645a.824.824 0 0 1 .55-.759c.478-.17.94.18 1.138.587.578 1.19 1.772 2.121 3.374 2.144 1.602.022 2.436-.96 3.057-2.124.215-.403.708-.835 1.277-.607.386.155.539.45.532.732.003.03.005.06.005.09v8.612a.846.846 0 1 1-1.693 0V7.02c-.86.813-1.891 1.333-3.206 1.311a5.477 5.477 0 0 1-3.346-1.237v6.225a.846.846 0 0 1-1.693 0V4.74c0-.032.002-.064.006-.096z"
+                                            fill-rule="nonzero">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            {{product.name}}
+                        </div>
+                        <div class="danh-gia-san-pham">
+                            <a href="#danh-gia-bang-sao" class="danh-gia-bang-sao">
+                                <div class="so-sao-danh-gia">4</div>
+                                <div class="sao-sao-sao">
+                                    <i class="sao-sao fas fa-star"></i>
+                                    <i class="sao-sao fas fa-star"></i>
+                                    <i class="sao-sao fas fa-star"></i>
+                                    <i class="sao-sao fas fa-star"></i>
+                                    <i class="sao-sao far fa-star"></i>
+                                </div>
+                            </a>
+                            <a class="so-luong-danh-gia" href="#so-luong-danh-gia">
+                                <div class="so-danh-gia-thuc-te">101</div>
+                                <span class="danh-gia">Đánh Giá</span>
+                            </a>
+                            <div class="so-luong-da-ban">
+                                <div class="so-luong-da-ban-ra">930</div>
+                                <span class="da-ban">Đã Bán</span>
+                            </div>
+                        </div>
+                        <div class="gia-san-pham">
+                            <div class="gia-san-pham-wrap">
+                                <div class="gia-cu">
+                                    đ320.000
+                                </div>
+                                <div class="gia-moi">
+                                    đ{{product.price}}
+                                </div>
+                                <div class="giam-gia-sales">
+                                    40% GIẢM
+                                </div>
+                            </div>
+                        </div>
+                        <div class="soraly-xu">
+                            <div class="xu">
+                                Xu
+                            </div>
+                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a507d0e185dbd56e388652d8d8da845d.png"
+                                width="16" height="16" class="hinh-dong-xu">
+                            <div class="loi-noi-doi-kinh-dien">
+                                Mua hàng và tích
+                                <div class="s900">900</div>
+                                Xu
+                            </div>
+                            <div class="thac-mac-ve-xu thac-mac-ve-xu-hover">
+                                <a href="#hoidapvexu" class="hoi-dap-xu">
+                                    <svg width="14" height="14">
+                                        <g transform="translate(1 1)" stroke="#9B9B9B" fill="none"
+                                            fill-rule="evenodd">
+                                            <circle fill="#FFF" cx="6" cy="6" r="6"></circle>
+                                            <path
+                                                d="M5.054 7.859c.008-.457.06-.819.156-1.084.096-.265.292-.559.588-.882l.755-.778c.323-.365.484-.757.484-1.176 0-.403-.106-.72-.317-.948-.211-.229-.519-.343-.922-.343-.392 0-.707.104-.946.311-.238.208-.357.486-.357.836H3.429c.007-.622.23-1.125.665-1.507.437-.383 1.004-.574 1.704-.574.726 0 1.292.195 1.697.585.406.39.608.926.608 1.606 0 .672-.31 1.335-.933 1.988l-.629.623c-.28.311-.42.759-.42 1.343H5.053zm-.046
+                                                1.827c0-.173.053-.318.158-.435.106-.117.263-.176.47-.176.208 0 .365.059.473.176a.62.62 0 0 1 .161.435.599.599 0 0 1-.161.43c-.108.113-.265.17-.473.17-.207 0-.364-.057-.47-.17a.605.605 0 0 1-.158-.43z"
+                                                stroke-width=".2" fill="#9B9B9B"></path>
+                                        </g>
+                                    </svg>
+                                </a>
+                                <div class="giai-dap-thac-mac">
+                                    <p>Săn Shopee xu để sử dụng cho lần mua hàng tới. Mỗi 1000 Xu thu được tương ứng
+                                        với ₫1.000.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="van-chuyen">
+                            <div class="cach-thuc-van-chuyen">
+                                <div class="mien-phi-van-chuyen-wrap">
+                                    <div class="ten-van-chuyen">Vận Chuyển</div>
+                                    <div class="mien-phi-van-chuyen">
+                                        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9d21899f3344277e34d40bfc08f60bc7.png"
+                                            width="25" height="15" class="free-ship">
+                                        Miễn phí vận chuyển
+                                    </div>
+                                </div>
+
+                                <div class="phuong-thuc-van-chuyen">
+                                    <div class="phuong-thuc-van-chuyen-wrap">
+                                        <div>
+                                            <i class="logo-van-chuyen fas fa-truck-moving"></i>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <div class="van-chuyen-toi">
+                                                    Vận chuyển tới
+                                                </div>
+                                            </div>
+                                            <div class="col-5">
+                                                <div class="form-group">
+                                                    <select class="form-control" name="" id="">
+                                                        <option>Hà nội</option>
+                                                        <option>Hồ Chí Minh</option>
+                                                        <option>Hải Phòng</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="post">
+
+                            <div class="so-luong-san-pham-muon-mua">
+
+                                <div class="soluong-sp">Số lượng</div>
+
+                                <div class="tang-giam-so-luong">
+                                    <div class="form-group">
+                                        <input type="number" min=1 value="1" style="font-size: 14px; width: 100px" class="form-control" name="number" id="" aria-describedby="helpId" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="sl-san-pham-con-hang mt-2"> 110 sản phẩm có sẵn</div>
+
+                            </div>
+                            {{!-- <div class="them-vao-gio-hang button" action="/products/{{product.idproduct}}/{{product.type}}"> --}}
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="nut-them-hang">
+                                            <input type="submit" formaction="/addtocart/{{product.idproduct}}/{{product.type}}" class="them-vao-gio-hang button" value="Thêm Vào Giỏ Hàng">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="nut-them-hang">
+                                            <input type="submit" formaction="/buynow/{{product.idproduct}}/{{product.type}}" class="mua-ngay button" value="Mua ngay">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="thong-tin-den-khach-hang">
+                            <div class="doi-tra-san-pham tra-hang-hover">
+                                <!-- Logo o day -->
+                                <a class="doi-tra-sp-link" href="#">7 ngày miễn phí trả hàng</a>
+                                <div class="tra-hang">
+                                    <p>Hoàn toàn yên tâm khi mua hàng ở Soraly Mall với ưu đãi miễn phí trả hàng lên
+                                        đến 7 ngày.</p>
+                                </div>
+                            </div>
+                            <div class="hang-chinh-hang tra-hang-hover">
+                                <!-- Logo o day -->
+                                <a class="doi-tra-sp-link" href="#">Hàng chính hãng 100%</a>
+                                <div class="tra-hang">
+                                    <p>Nhận lại gấp đôi số tiền mà bạn đã thanh toán cho sản phẩm không chính hãng
+                                        từ Soraly Mall</p>
+                                </div>
+                            </div>
+                            <div class="mien-phi-van-chuyen-cuoi-trang tra-hang-hover">
+                                <!-- Logo o day -->
+                                <a class="doi-tra-sp-link" href="#">Miễn phí vận chuyển</a>
+                                <div class="tra-hang">
+                                    <p>Ưu đãi miễn phí vận chuyển lên tới 40,000 VNĐ cho đơn hàng của Soraly Mall từ
+                                        150,000 VNĐ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Thông Tin Về Nhà Bán Hàng -->
+                <div class="information-shop-sales">
+                    <div class="intern-shop-sales">
+                        <div class="brand-shop-sales">
+                            <img class="img-shop-sales"
+                                src="https://cf.shopee.vn/file/afd9e20a2d088f497f038fae8d51241a_tn"
+                                alt="smartmallshop">
+                            <img class="official-shop-new-badge--all"
+                                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/60cc60bb2ede69dffde9a70d62f8015f.png"
+                                loading="lazy">
+                        </div>
+                        <div class="left-brand-shop-sales-wrap">
+                            <div class="the-shop-sales-name">smartbookvn</div>
+                            <div class="operation-status-shop-sales">Online 10 phút trước</div>
+                            <div class="button-shop-sales-wrap">
+                                <a href="#message" class="chat-with-shop-sales button">
+                                    <i class="icon-chat-with-shop far fa-comments"></i>
+                                    Chat Ngay</a>
+                                <a href="#smartbookvn" class="view-full-shop-sales button">
+                                    <i class="icon-view-shop-sales fas fa-house-user"></i>
+                                    Xem Shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-detail-shop-sales">
+                        <div class="two-col-info">
+                            <div class="rate-for-shop">
+                                <span class="font-use-for-all-shop">Đánh Giá</span>
+                                <span class="info-font-use-for-all">724.5k</span>
+                            </div>
+                            <div class="rate-for-shop">
+                                <span class="font-use-for-all-shop">Sản Phẩm</span>
+                                <span class="info-font-use-for-all">33.7k</span>
+                            </div>
+                        </div>
+                        <div class="two-col-info">
+                            <div class="rate-feedback-shop">
+                                <span class="font-use-for-all-shop">Tỉ Lệ Phản Hồi</span>
+                                <span class="info-font-use-for-all">100%</span>
+                            </div>
+                            <div class="rate-feedback-shop">
+                                <span class="font-use-for-all-shop">Thời Gian Phản Hồi</span>
+                                <span class="info-font-use-for-all">trong vài giờ</span>
+                            </div>
+                        </div>
+                        <div class="two-col-info">
+                            <div class="join-shop">
+                                <span class="font-use-for-all-shop">Tham Gia</span>
+                                <span class="info-font-use-for-all">2 năm trước</span>
+                            </div>
+                            <div class="join-shop">
+                                <span class="font-use-for-all-shop">Người Theo Dõi</span>
+                                <span class="info-font-use-for-all">1 milion</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Chi tiết sản phẩm -->
+                <div class="detail-infor-product">
+                    <div class="detail-infor-product-header">
+                        <p class="detail-infor-product-header-title">CHI TIẾT SẢN PHẨM</p>
+                    </div>
+                    <div class="detail-infor-product-content">
+                        <div class="detail-infor-content-left">
+                            <div class="detail-infor-content-name">Danh Mục</div>
+                            <div class="detail-infor-content-name">Tác Giả</div>
+                            <div class="detail-infor-content-name">Nhà Xuất Bản</div>
+                            <div class="detail-infor-content-name">Công Ty Phát Hành</div>
+                            <div class="detail-infor-content-name">Kho Hàng</div>
+                            <div class="detail-infor-content-name">Gửi Từ</div>
+                        </div>
+                        <div class="detail-infor-content-right">
+                            <div class="detail-infor-content-category-link">
+                                <a href="#" class="chi-muc detail-infor-content-detail-link">Soraly<i
+                                        class="angle-right-css fas fa-angle-right"></i></a>
+                                <a href="#" class="chi-muc detail-infor-content-detail-link">Sách Tiếng Việt<i
+                                        class="angle-right-css fas fa-angle-right"></i></a>
+                                <a href="#" class="chi-muc detail-infor-content-detail-link">Sách Lịch Sử</a>
+                            </div>
+                            <div class="cc"><a href="#auther-Quang-Nam"
+                                    class="detail-infor-content-detail detail-infor-content-detail-link">Quang
+                                    Nam</a></div>
+                            <div class="cc"><a href="#nxb-hong-duc"
+                                    class="detail-infor-content-detail detail-infor-content-detail-link">NXB Hồng
+                                    Đức</a></div>
+                            <div class="detail-infor-content-detail">Nhã Nam</div>
+                            <div class="detail-infor-content-detail">180</div>
+                            <div class="detail-infor-content-detail">Quận 7, TP.Hồ Chí Minh</div>
+                        </div>
+                        <!-- <div class="detail-infor-content">
+                                <div class="detail-infor-content-name">Danh Mục</div>
+                                <div class="detail-infor-content-category-link">
+                                    <a href="#" class="chi-muc detail-infor-content-detail-link">Soraly<i class="angle-right-css fas fa-angle-right"></i></a>
+                                    <a href="#" class="chi-muc detail-infor-content-detail-link">Sách Tiếng Việt<i
+                                    class="angle-right-css fas fa-angle-right"></i></a>
+                                    <a href="#" class="chi-muc detail-infor-content-detail-link">Sách Lịch Sử</a>
+                                </div>
+                            </div>
+                            <div class="detail-infor-content">
+                                <div class="detail-infor-content-name">Tác Giả</div>
+                                <a href="#auther-Quang-Nam" class="detail-infor-content-detail detail-infor-content-detail-link">Quang Nam</a>
+                            </div>
+                            <div class="detail-infor-content">
+                                <div class="detail-infor-content-name">Nhà Xuất Bản</div>
+                                <a href="#nxb-hong-duc" class="detail-infor-content-detail detail-infor-content-detail-link">NXB Hồng Đức</a>
+                            </div>
+                            <div class="detail-infor-content">
+                                <div class="detail-infor-content-name">Công Ty Phát Hành</div>
+                                <div class="detail-infor-content-detail">Nhã Nam</div>
+                            </div>
+                            <div class="detail-infor-content">
+                                <div class="detail-infor-content-name">Kho Hàng</div>
+                                <div class="detail-infor-content-detail">180</div>
+                            </div>
+                            <div class="detail-infor-content">
+                                <div class="detail-infor-content-name">Gửi Từ</div>
+                                <div class="detail-infor-content-detail">Quận 7, TP.Hồ Chí Minh</div>
+                            </div> -->
+                    </div>
+                    <div class="detail-infor-product-header">
+                        <p class="detail-infor-product-header-title">MÔ TẢ SẢN PHẨM</p>
+                    </div>
+                    <div class="description-info-product">
+                        <p>Công ty phát hành: Nhã Nam <br>
+                            Tác giả: E.H. Gombrich <br>
+                            Nhà xuất bản: NXB Hồng Đức <br>
+                            Năm xuất bản: 2019 <br>
+                            Số trang: 426 <br>
+                        </p>
+                        <p>
+                            Giới thiệu sách: <br>
+                            Từ khi được viết ra bằng tiếng Đức năm 1935, Lược sử thế giới đã trở thành cuốn sách
+                            lịch sử bán chạy ở ba mươi ngôn ngữ. Năm 2005, cuốn sách được xuất bản bằng tiếng Anh
+                            với phần minh họa bổ sung, và phiên bản này bán được hơn nửa triệu bản trên toàn thế
+                            giới. <br> <br>
+                            Như một bài thơ về lịch sử thế giới, E. H. Gombrich lịch lãm dẫn người đọc đi từ thời kỳ
+                            Đồ đá đến thời kỳ của năng lượng nguyên tử, với những biến cố lịch sử phức tạp nhất, các
+                            trào lưu tư tưởng khó hiểu nhất, những nhân vật lịch sử đa chiều nhất, các thành tựu lớn
+                            lao nhất của trí tuệ con người… tất cả đều được tác giả mô tả và diễn giải dễ hiểu đến
+                            bất ngờ. <br> <br>
+                            Với cuốn sách này trong tay, bạn sẽ thấy niềm vui to lớn trong việc tìm hiểu lịch sử,
+                            cùng vô số khoảnh khắc quên hết tất cả để say mê đắm mình trong quá vãng của dòng chảy
+                            lịch sử. <br> <br>
+                            “Một câu chuyện hấp dẫn, được tổ chức tuyệt vời và được kể với một năng lượng và sự tự
+                            tin vô cùng cuốn hút, tràn ngập tình nhân văn và tinh thần hào sảng mà hàng ngàn người
+                            ngưỡng mộ Gombrich đã yêu mến trong suốt cuộc đời dài và đầy sáng tạo của ông. Cuốn sách
+                            thực sự là một điều bất ngờ đầy thú vị, không thể nào cưỡng lại!”
+                        </p>
+                    </div>
+                </div>
+                <!-- Đánh giá sản phẩm -->
+                <div class="reviews-product">
+                    <div class="reviews-product-header">
+                        <p class="reviews-product-title">ĐÁNH GIÁ SẢN PHẨM</p>
+                    </div>
+                    <div class="reviews-product-star">
+                        <div class="reviews-product-star-left">
+                            <div class="reviews-product-star-left-number"> <span
+                                    class="reviews-product-star-left-number-big">4</span>
+                                trên 5
+                            </div>
+                            <div class="reviews-product-star-left-star">
+                                <div class="sao-sao-sao">
+                                    <i class="sao-sao star-change fas fa-star"></i>
+                                    <i class="sao-sao star-change fas fa-star"></i>
+                                    <i class="sao-sao star-change fas fa-star"></i>
+                                    <i class="sao-sao star-change fas fa-star"></i>
+                                    <i class="sao-sao star-change far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews-product-star-right">
+                            <div class="reviews-product-star-right-follow-star">
+                                <a href="#" class="button reviews-product-star-right-btn btn-review-visited">Tất
+                                    Cả</a>
+                                <a href="#" class="button reviews-product-star-right-btn">5 Sao (82)</a>
+                                <a href="#" class="button reviews-product-star-right-btn">4 Sao (7)</a>
+                                <a href="#" class="button reviews-product-star-right-btn">3 Sao (5)</a>
+                                <a href="#" class="button reviews-product-star-right-btn">2 Sao (1)</a>
+                                <a href="#" class="button reviews-product-star-right-btn">1 Sao (1)</a>
+                                <a href="#" class="button reviews-product-star-right-btn">Có Bình Luận (56)</a>
+                            </div>
+                            <div class="reviews-product-star-right-bottom">
+                                <a href="#" class="button reviews-product-star-right-btn">Với Hình Ảnh / Video
+                                    (48)</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews-product-comment-wrap">
+                        <div class="reviews-product-comment">
+                            <div class="reviews-product-comment-avatar">
+                                <img class="reviews-product-comment-avatar-img" src="assets/img/abc.jpg">
+                            </div>
+                            <div class="reviews-product-comment-main">
+                                <a href="#manthichbuscu882" class="reviews-product-comment-author">manthichbuscu882</a>
+                                <div class="reviews-product-comment-star">
+                                    <div class="sao-sao-sao star-change-again">
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="reviews-product-comment-content">
+                                    Tuy chim (buồi,cu) của mình chỉ bằng cây bút chì nhưng mình sẽ quyết tâm mài duỗi nó trở thành cây kim. Liên quan lắm là quyển sách này đọc rất ok bạn nhớ :v
+                                </div>
+                                <div class="reviews-product-comment-list-img-rate">
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-img">
+
+                                    </div>
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/abcd.jpg" alt="" class="reviews-product-comment-img-rate-img">
+                                    </div>
+                                    <!-- <div class="reviews-product-comment-img-rate-zoom">
+                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
+                                        </div> -->
+                                </div>
+                                <div class="reviews-product-comment-time">
+                                    2020-06-25 1:39
+                                </div>
+                                <div class="reviews-product-comment-rate-like">
+                                    <div class="reviews-product-comment-rate-like-left">
+                                        <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
+                                        <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
+                                    </div>
+                                    <div class="reviews-product-comment-rate-like-right">
+                                        <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                                        <div class="reviews-product-comment-rate-like-right-hover">
+                                            <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews-product-comment">
+                            <div class="reviews-product-comment-avatar">
+                                <img class="reviews-product-comment-avatar-img" src="assets/img/ly.jpg">
+                            </div>
+                            <div class="reviews-product-comment-main">
+                                <a href="#roisaothichgi" class="reviews-product-comment-author">lythichliemloz</a>
+                                <div class="reviews-product-comment-star">
+                                    <div class="sao-sao-sao star-change-again">
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="reviews-product-comment-content">
+                                    Tối nay tối nay tối nay tối nay tối nay tối nay tối nayyyyyyyyy
+                                </div>
+                                <div class="reviews-product-comment-list-img-rate">
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/ly1.jpg" alt="" class="reviews-product-comment-img-rate-img">
+
+                                    </div>
+
+                                    <!-- <div class="reviews-product-comment-img-rate-zoom">
+                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
+                                        </div> -->
+                                </div>
+                                <div class="reviews-product-comment-time">
+                                    2020-06-19 12:05
+                                </div>
+                                <div class="reviews-product-comment-rate-like">
+                                    <div class="reviews-product-comment-rate-like-left">
+                                        <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
+                                        <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
+                                    </div>
+                                    <div class="reviews-product-comment-rate-like-right">
+                                        <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                                        <div class="reviews-product-comment-rate-like-right-hover">
+                                            <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews-product-comment">
+                            <div class="reviews-product-comment-avatar">
+                                <img class="reviews-product-comment-avatar-img" src="assets/img/nhat.jpg">
+                            </div>
+                            <div class="reviews-product-comment-main">
+                                <a href="#imnhatnhatne091" class="reviews-product-comment-author">imnhatnhat091</a>
+                                <div class="reviews-product-comment-star">
+                                    <div class="sao-sao-sao star-change-again">
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="reviews-product-comment-content">
+                                    Đọc xong quyển sách này tôi bỗng muốn làm ngay 1 đoạn thơ: <br>
+                                    <i>Cánh đồng xanh làn mây trắng</i><br>
+                                    <i>Anh yêu nắng hay là yêu em.</i>
+                                </div>
+                                <div class="reviews-product-comment-list-img-rate">
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/nhat1.jpg" alt="" class="reviews-product-comment-img-rate-img">
+
+                                    </div>
+
+                                    <!-- <div class="reviews-product-comment-img-rate-zoom">
+                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
+                                        </div> -->
+                                </div>
+                                <div class="reviews-product-comment-time">
+                                    2020-03-29 23:05
+                                </div>
+                                <div class="reviews-product-comment-rate-like">
+                                    <div class="reviews-product-comment-rate-like-left">
+                                        <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
+                                        <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
+                                    </div>
+                                    <div class="reviews-product-comment-rate-like-right">
+                                        <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                                        <div class="reviews-product-comment-rate-like-right-hover">
+                                            <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reviews-product-comment">
+                            <div class="reviews-product-comment-avatar">
+                                <img class="reviews-product-comment-avatar-img" src="assets/img/minh.jpg">
+                            </div>
+                            <div class="reviews-product-comment-main">
+                                <a href="#minhnhona" class="reviews-product-comment-author">na_oi_la_na</a>
+                                <div class="reviews-product-comment-star">
+                                    <div class="sao-sao-sao star-change-again">
+                                        <i class="sao-sao fas fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                        <i class="sao-sao far fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="reviews-product-comment-content">
+                                    <b>Làm ơn</b> hãy bỏ <u>block</u> anh đi mà. Đừng làm vậy tội nghiệp :(
+                                </div>
+                                <div class="reviews-product-comment-list-img-rate">
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/minh1.jpg" alt="" class="reviews-product-comment-img-rate-img">
+
+                                    </div>
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/minh2.png" alt="" class="reviews-product-comment-img-rate-img">
+                                    </div>
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/minh3.jpg" alt="" class="reviews-product-comment-img-rate-img">
+                                    </div>
+                                    <div class="reviews-product-comment-img-rate">
+                                        <img src="/assets/img/minh4.jpg" alt="" class="reviews-product-comment-img-rate-img">
+                                    </div>
+                                    <!-- <div class="reviews-product-comment-img-rate-zoom">
+                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
+                                        </div> -->
+                                </div>
+                                <div class="reviews-product-comment-time">
+                                    2020-06-25 2:29
+                                </div>
+                                <div class="reviews-product-comment-rate-like">
+                                    <div class="reviews-product-comment-rate-like-left">
+                                        <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
+                                        <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
+                                    </div>
+                                    <div class="reviews-product-comment-rate-like-right">
+                                        <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
+                                        <div class="reviews-product-comment-rate-like-right-hover">
+                                            <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews-product-page">
+                        <ul class="pagination home-product-pagination">
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">
+                                    <i class="pagination-item-icon fas fa-angle-left"></i>
+                                </a>
+                            </li>
+                            <li class="pagination-item pagination-item-active">
+                                <a href="" class="pagination-item-link">1</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">2</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">3</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">4</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">5</a>
+                            </li>
+                            <li class="pagination-item pagination-item-link-nopointer">
+                                <a href="" class="pagination-item-link">...</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">14</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-item-link">
+                                    <i class="pagination-item-icon fas fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app__chat">
+    <i class="app__chat-icon fas fa-comments"></i>
+    <h class="app__chat-text">
+        Chat
+    </h>
+</div>

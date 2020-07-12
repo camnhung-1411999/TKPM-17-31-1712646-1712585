@@ -8,6 +8,10 @@ import productService from "../services/product.service";
 
 router.get('/',productController.products)
 
+router.get('/:type',productController.productsFollowType);
+
+router.get('/:id/:type',productController.productInformation);
+
 router.post('/',productController.create);
 
 router.get('/upload',productController.upload);

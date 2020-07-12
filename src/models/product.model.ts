@@ -6,6 +6,7 @@ export type IProduct = mongoose.Document & {
   image: String;
   decription: String;
   price: String;
+  type: String,
   size: [];
 };
 
@@ -19,6 +20,7 @@ const productSchema = new mongoose.Schema(
     image: String,
     decription: String,
     price: String,
+    type: String,
     size: [],
   },
   { timestamps: true }

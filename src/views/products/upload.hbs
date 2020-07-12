@@ -61,9 +61,23 @@
 
                             </div>
                             <div class="col-lg-12 nopadding">
-                                <div class="form-group">
-                                    <label for="">Image</label>
-                                    <input type="file" mutiple style="font-size:15px" class="form-control-file" name="avatar">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Image</label>
+                                            <input type="file" mutiple style="font-size:15px" class="form-control-file" name="avatar">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 second">
+                                       <div class="form-group">
+                                         <label for="">Choose type shoe</label>
+                                         <select class="form-control form-control-sm" style="height:30px" name="type" id="">
+                                           <option value="Men" selected>Men</option>
+                                           <option value="Women">Women</option>
+                                           <option value="Kids">Kids</option>
+                                         </select>
+                                       </div>
+                                    </div>
                                 </div>
                                 <label for="">Nội dung</label>
                                 <textarea id="txtEditor"></textarea>
