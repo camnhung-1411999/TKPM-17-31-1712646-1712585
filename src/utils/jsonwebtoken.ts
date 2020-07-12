@@ -1,11 +1,15 @@
 import { Response, NextFunction, Request } from 'express';
 import { verify, sign } from 'jsonwebtoken';
+import { cookie } from 'request';
 
-const jwtSecret ="abc123456xyz"
-export const authenticateAccessToken = (req: Request, res: Response) => {
-    const accessToken = req.headers.authorization;
+
+const jwtSecret ="abc123456xyz";
+export const authenticateAccessToken = (req: Request, res: Response, next: NextFunction) => {
+
+    const accessToken = req.cookies['token'];
+    
     if (accessToken) {
-        const token = accessToken.split(' ')[1];
+        const token = accessToken;
         verify(token, jwtSecret, (err: any, user: any) => {
             if (err) {
                 res.status(403).json({
@@ -14,7 +18,7 @@ export const authenticateAccessToken = (req: Request, res: Response) => {
                 })
             }
             req.user = user;
-            return;
+            next();
         });
     } else {
         res.status(401).json({
@@ -56,7 +60,7 @@ export const authenticateRefreshToken = (req: any, res: Response, next: NextFunc
 
 export const generateToken = (user: any): {accessToken: string, refreshToken: string} => {
   const accessToken = sign(user, jwtSecret, {
-    expiresIn: 7200
+    expiresIn: 720000
   })
   const refreshToken = sign(user,jwtSecret, {
     expiresIn: 604800

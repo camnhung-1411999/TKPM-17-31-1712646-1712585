@@ -6,19 +6,19 @@ import bcrypt from 'bcrypt';
 export default class Auth {
     public static async hashPassword(password: string): Promise<string> {
         return new Promise((resolve) => {
-            bcrypt.genSalt(10, (err, salt) => {
-                if (err) { throw err; }
-                bcrypt.hash(password, salt, (err, hash) => {
-                    if (err) { throw err; }
-                    resolve(hash);
-                });
+            // bcrypt.genSalt(10, (err, salt) => {
+            //     if (err) { throw err; }
+            //     bcrypt.hash(password, salt, (err, hash) => {
+            //         if (err) { throw err; }
+            //         resolve(hash);
+            //     });
+            // });
+            bcrypt.hash(password, 10, (error, hash) => {
+                if (error) {
+                    throw error;
+                }
+                resolve(hash);
             });
-            //   bcrypt.hash(password, 10, (error, hash) => {
-            //     if (error) {
-            //       throw error;
-            //     }
-            //     resolve(hash);
-            //   });
         });
     }
 
@@ -52,44 +52,44 @@ export default class Auth {
     }
 
     public static async account(req: Request, res: Response, next: NextFunction) {
-        const value = await userService.find(req.body.username as string);
+        res.clearCookie("checkFail");
+        const value = await userService.find(req.body.user as string);
         if (value === null) {
-          res.status(404).json({
-              status:"404",
-              message:"Account not found"
-          })
+            res.cookie('checkFail', true);
+            res.redirect('/auth/login');
         }
         if (value !== null) {
-          bcrypt.compare(req.body.password, value.password, (errors, result) => {
-            if (errors) {
-                res.status(404).json({
-                    status:"422",
-                    message:"Password wrong!"
-                })
-            }
-            else if (result) {
-              const { accessToken, refreshToken } = generateToken({
-                username: value.username,
-                password: value.password
-              });
-              return res.status(200).json({
-                'message': 'Login successfully',
-                'access-token': accessToken,
-                'refresh-token': refreshToken
-              })
-            } else {
-                res.status(404).json({
-                    status:"422",
-                    message:"Invalid password"
-                })
-            }
-          });
+            bcrypt.compare(req.body.password, value.password, (errors, result) => {
+                if (errors) {
+                    throw errors;
+                }
+                else {
+                    if (result) {
+                        const { accessToken, refreshToken } = generateToken({
+                            username: value.username,
+                            password: value.password
+                        });
+                        res.cookie('token', accessToken);
+                        res.redirect('/home');
+                    }
+
+                    else {
+                        res.cookie('checkFail', true);
+                        res.redirect('/auth/login');
+                    }
+                }
+            });
         }
-      }
-    
+    }
     public static async User(req: Request, res: Response, next: NextFunction) {
         const value = await userService.find(req.body.username);
         if (value === null) {
+            const { accessToken, refreshToken } = generateToken({
+                username: req.body.username,
+                password: req.body.password
+            });
+            res.cookie('token', accessToken);
+            res.redirect('/home');
             next();
         } else {
             // signup user existed
