@@ -3,6 +3,7 @@ import { IProduct } from "../models/product.model";
 import { Request, Response } from "express";
 import Image from "../Components/image";
 import { title } from "process";
+import { type } from "os";
 var cloudinary = require("cloudinary");
 cloudinary.config({
   cloud_name: "hoang-man-1108",
@@ -11,22 +12,31 @@ cloudinary.config({
 });
 class ProductController {
   static products(req: Request, res: Response) {
+    let page: number = Number(req.query.page) || 1;
+    if (page < 1) page = 1;
     Promise.resolve(
-      productService.list().then((result) => {
+      productService.listPage(page).then(async (result) => {
+        let total = await productService.count();
+        let nPages = Math.floor(total / 8);
+        if (total % 8 > 0) nPages++;
+        const page_numbers = [];
+        for (let i = 1; i <= nPages; i++) {
+          page_numbers.push({
+            value: i,
+            isCurrentPage: i === +page,
+          });
+        }
         res.render("products/products", {
           title: "Sản phẩm",
           listproducts: result,
           all: true,
+          page_numbers,
+          prev_value: +page - 1,
+          next_value: +page + 1,
         });
       })
     );
   }
-
-  // static find(req: Request, res: Response) {
-  //   let idproduct: string = req.params.product;
-  //   let product: Promise<IProduct | null> = productService.find(idproduct);
-  //   res.send("find product");
-  // }
 
   static create(req: Request, res: Response) {
     let product: IProduct = { ...req.body };
@@ -38,10 +48,6 @@ class ProductController {
   static update(req: Request) {
     return productService.update(req.params.product, req.body);
   }
-
-  // static delete(req: Request) {
-  //   return productService.delete(req.params.product);
-  // }
 
   static upload(req: Request, res: Response) {
     res.render("products/upload", { title: "Upload New Product" });
@@ -67,17 +73,33 @@ class ProductController {
     let Men = false,
       Women = false,
       Kids = false;
-    if (req.params.type === "Men") Men = true;
-    else if (req.params.type === "Women") Women = true;
-    else if (req.params.type === "Kids") Kids = true;
+    let type = req.params.type;
+    if (type === "Men") Men = true;
+    else if (type === "Women") Women = true;
+    else if (type === "Kids") Kids = true;
+    let page: number = Number(req.query.page) || 1;
+    if (page < 1) page = 1;
     Promise.resolve(
-      productService.listFollowType(req.params.type).then((result) => {
+      productService.listFollowTypePage(page, type).then(async (result) => {
+        let total = await productService.countType(type);
+        let nPages = Math.floor(total / 8);
+        if (total % 8 > 0) nPages++;
+        const page_numbers = [];
+        for (let i = 1; i <= nPages; i++) {
+          page_numbers.push({
+            value: i,
+            isCurrentPage: i === +page,
+          });
+        }
         res.render("products/products", {
           title: "Products's " + req.params.type,
           listproducts: result,
           Men,
           Women,
           Kids,
+          page_numbers,
+          prev_value: +page - 1,
+          next_value: +page + 1,
         });
       })
     );
@@ -85,20 +107,17 @@ class ProductController {
   static productInformation(req: Request, res: Response) {
     let idproduct: string = req.params.id;
     let type: string = req.params.type;
-    // let num:Number = 123456678.00;
-    // let str:string = num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-    // console.log(num, str);
     Promise.resolve(productService.find(type, idproduct)).then(
       (result: IProduct | null) => {
         if (result) {
-          let temp:String = result.price;
-          result.price = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+          let temp: String = result.price;
+          result.price = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
           res.render("products/informationproduct", {
             title: result.name,
             product: result,
           });
-        }else{
-          res.send({error:404,message:'Cannot find product in database'});
+        } else {
+          res.send({ error: 404, message: "Cannot find product in database" });
         }
       }
     );
@@ -106,3 +125,12 @@ class ProductController {
 }
 
 export default ProductController;
+// static find(req: Request, res: Response) {
+//   let idproduct: string = req.params.product;
+//   let product: Promise<IProduct | null> = productService.find(idproduct);
+//   res.send("find product");
+// }
+
+// static delete(req: Request) {
+//   return productService.delete(req.params.product);
+// }

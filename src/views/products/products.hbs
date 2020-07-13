@@ -70,6 +70,35 @@
                 </div>
                 {{/each}}
             </div>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" id="prev_value" href="?page={{prev_value}}">
+                                    <i class="fa fa-backward" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            {{#each this.page_numbers}}
+                            {{#if isCurrentPage}}
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link page-click" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
+                            </li>
+                            {{else}}
+                            <li class="page-item">
+                                <a class="page-link page-click" href="?page={{value}}">{{value}}</a>
+                            </li>
+                            {{/if}}
+                            {{/each}}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{next_value}}" id="next_value">
+                                    <i class="fa fa-forward" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 </div>

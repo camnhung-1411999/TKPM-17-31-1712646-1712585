@@ -25,6 +25,5 @@ const productSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 const ProductCollection = mongoose.model<IProduct>("product", productSchema);
 export default ProductCollection;

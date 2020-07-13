@@ -4,7 +4,6 @@ const router = express.Router();
 const fs = require('fs');
 import multer from 'multer';
 var upload = multer({dest:'uploads/'});
-import productService from "../services/product.service";
 
 router.get('/',productController.products)
 

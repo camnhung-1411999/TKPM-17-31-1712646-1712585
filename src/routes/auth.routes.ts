@@ -3,7 +3,6 @@ import check from '../utils/auth';
 
 import express = require('express');
 import { fail } from 'assert';
-// import joi = require('joi');
 
 const router = express.Router();
 
@@ -34,6 +33,5 @@ router.post(
     (req,res)=>{
         res.redirect('/home');
     }
-
 )
 export default router;
