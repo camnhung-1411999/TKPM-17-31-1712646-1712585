@@ -65,7 +65,7 @@ class ProductController {
           };
           productService.create(product);
         }
-        res.redirect("/products/upload");
+        res.redirect("/upload/newproduct");
       }
     );
   }

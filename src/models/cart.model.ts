@@ -5,6 +5,9 @@ export type ICart = mongoose.Document & {
   idproduct: String,
   type: String,
   numproduct: String,
+  image: String,
+  nameproduct: String,
+  price: String,
 };
 
 const cartSchema = new mongoose.Schema(
@@ -13,6 +16,9 @@ const cartSchema = new mongoose.Schema(
     idproduct: String,
     type: String,
     numproduct: String,
+    image: String,
+    nameproduct: String,
+    price: String,
   },
   { timestamps: true }
 );

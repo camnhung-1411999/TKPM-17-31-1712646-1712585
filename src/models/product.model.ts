@@ -7,6 +7,7 @@ export type IProduct = mongoose.Document & {
   decription: String;
   price: String;
   type: String,
+  numberproduct: String,
   size: [];
 };
 
@@ -21,6 +22,7 @@ const productSchema = new mongoose.Schema(
     decription: String,
     price: String,
     type: String,
+    numberproduct: String,
     size: [],
   },
   { timestamps: true }
