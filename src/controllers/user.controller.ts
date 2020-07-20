@@ -1,10 +1,19 @@
 import userService from '../services/user.service';
 import { IUser } from '../models/user.model';
-import { Request} from 'express';
+import { Request, Response} from 'express';
 import Password from '../utils/auth';
 class UserController {
-    static list() {
-        return userService.list();
+    static list(req: Request, res: Response) {
+        const list =  userService.list();
+        Promise.resolve(list).then((result) =>{
+            res.render(
+                'admin/user',
+                {
+                    title: "Manage user",
+                    list: result
+                }
+            )
+        });
     }
     static find(req: Request) {
         let username: string = req.params.username;

@@ -1,7 +1,7 @@
 import e, { Request, Response } from "express";
 import cartService from "../services/cart.service";
 import productService from "../services/product.service";
-import { ICart } from "../models/cart.model";
+import CartCollection ,{ ICart }from "../models/cart.model";
 import { IProduct } from "../models/product.model";
 class CartController {
   static PostAddToCart(req: Request, res: Response) {
@@ -15,13 +15,13 @@ class CartController {
             console.log(req.user);
             let num:String = req.body.number;
             let name:String = "hoangman";
-            const cart =new ICart
-            ( {
+            const cart = new CartCollection({
               username: name,
               idproduct: result.idproduct,
               type: result.type,
               numproduct: num,
             });
+            cart.save();
             //tau là mèo đây, và t đang chat với ngươi
             cartService.create(cart);
           }

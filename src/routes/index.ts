@@ -7,6 +7,7 @@ import productRoutes from "./product.routes";
 import authRoutes from "./auth.routes";
 import adminRoutes from "./admin.routes";
 import cartRoutes from "./cart.routes";
+import categoryRoutes from "./category.routes";
 router.get("/home", authenticateAccessToken, (req, res) => {
   res.render("home", {
     title: "Home",
@@ -20,6 +21,7 @@ router.get("/", (req, res) => {
   });
 });
 router.use("/users", userRoutes);
+router.use("/category", categoryRoutes);
 router.use("/products", productRoutes);
 router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
