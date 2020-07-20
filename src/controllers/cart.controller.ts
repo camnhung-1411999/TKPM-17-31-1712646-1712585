@@ -1,15 +1,75 @@
-import { Request, Response} from "express";
+import { Request, Response } from "express";
 import cartService from "../services/cart.service";
 import productService from "../services/product.service";
+import billService from "../services/bill.service";
+
 import CartCollection, { ICart } from "../models/cart.model";
 import { IProduct } from "../models/product.model";
+import { IUser } from "../models/user.model";
+import { IBill, IProBill } from '../Components/bill';
+
+import userService from "../services/user.service";
+
+
+import BillCollection from '../models/bill.model';
 class CartController {
   static Cart(req: Request, res: Response) {
     Promise.resolve(
-      cartService.list(req.user.username).then((result:any) => {
-        res.render("cart/cart", { title: "Cart", list: result, size: result.length });
+      cartService.list(req.user.username).then((result: any) => {
+        res.render("cart/cart", { title: "Cart", list: result, size: result.length, user: req.user });
       })
     );
+  }
+
+  static CheckOut(req: Request, res: Response) {
+    let user: IUser;
+    Promise.resolve(userService.find(req.user.username).then((result: IUser | null) => {
+      if (result) {
+        user = result;
+      }
+    }))
+    Promise.resolve(cartService.list(req.user.username).then((result: ICart[] | null) => {
+      res.render('pay/checkout', { title: 'check out', list: result, user });
+    }))
+  }
+
+  static async PostCheckOut(req: Request, res: Response) {
+    let product: ICart[] | null = await Promise.resolve(cartService.list(req.user.username));
+    let proInBills: IProBill[] = [];
+    if (product) {
+      product.forEach(element => {
+        let proInBill: IProBill = {
+          idproduct: element.idproduct,
+          nameproduct: element.nameproduct,
+          type: element.type,
+          numbuy: element.numproduct,
+          price: element.price
+        };
+        proInBills.push(proInBill);
+      });
+    }
+    let bill: IBill = {
+      username: req.user.username,
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      deliveryadress: req.body.address,
+      products: proInBills,
+    };
+    console.log(bill);
+    billService.create(bill);
+    res.redirect('/cart');
+    
+    if (product) {
+      product.forEach( async element => {
+        cartService.remove( String(element.idproduct), String(element.type));
+        let pro:IProduct|null = await productService.find(String(element.type), String(element.idproduct));
+        if(pro){
+          productService.update(element.idproduct+ '',{numberproduct:Number(pro.numberproduct)-Number(element.numproduct)});
+        }
+      });
+    }
+
   }
 
   static PostAddToCart(req: Request, res: Response) {
@@ -31,7 +91,7 @@ class CartController {
               nameproduct: result.name,
               type: result.type,
               numproduct: num,
-              price: result.price
+              price: result.price,
             });
             cart.save();
             // result.numberproduct =
@@ -46,11 +106,11 @@ class CartController {
     );
   }
 
-  static Remove(req:Request, res:Response){
-    Promise.resolve( cartService.remove(req.params.idproduct, req.params.type).then(result =>{
+  static Remove(req: Request, res: Response) {
+    Promise.resolve(cartService.remove(req.params.idproduct, req.params.type).then(result => {
       res.redirect('/cart');
     }))
-    
+
   }
 }
 export default CartController;

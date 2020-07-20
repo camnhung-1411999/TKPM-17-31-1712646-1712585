@@ -1,5 +1,5 @@
 import express from "express";
-import { authenticateAccessToken } from "../utils/jsonwebtoken";
+import { authenticateAccessToken} from "../utils/jsonwebtoken";
 const router = express.Router();
 import productController from "../controllers/product.controller";
 const fs = require("fs");
@@ -18,7 +18,7 @@ router.get("/home", authenticateAccessToken, (req, res) => {
     user: req.user,
   });
 });
-router.get("/", (req, res) => {
+router.get("/", authenticateAccessToken, (req, res) => {
   res.render("home", {
     title: "Home",
     user: req.user,
@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 });
 
 
-router.get("/upload/newproduct", productController.upload);
+router.get("/upload/newproduct", authenticateAccessToken, productController.upload);
 router.post(
   "/upload/newproduct",
   upload.single("avatar"),
@@ -38,6 +38,6 @@ router.use("/products", authenticateAccessToken, productRoutes);
 router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);
-router.use("/favorite",authenticateAccessToken, favoriteRoutes);
+router.use("/favorite", authenticateAccessToken, favoriteRoutes);
 
 export default router;

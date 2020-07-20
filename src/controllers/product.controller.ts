@@ -33,6 +33,7 @@ class ProductController {
           page_numbers,
           prev_value: +page - 1,
           next_value: +page + 1,
+          user:req.user
         });
       })
     );
@@ -100,6 +101,7 @@ class ProductController {
           page_numbers,
           prev_value: +page - 1,
           next_value: +page + 1,
+          user:req.user
         });
       })
     );
@@ -115,6 +117,7 @@ class ProductController {
           res.render("products/informationproduct", {
             title: result.name,
             product: result,
+            user:req.user
           });
         } else {
           res.send({ error: 404, message: "Cannot find product in database" });

@@ -10,7 +10,8 @@
                 </div>
             </div>
             <div class="right">
-                <div class="modal-1" data-toggle="modal" data-target="#staticBackdrop">
+                {{!-- data-toggle="modal" --}}
+                <div class="modal-1"  data-target="#staticBackdrop">
                     {{#if user.username}}
                     <span class="content">{{user.username}}</span>
                     <span class="content ml-5"> <a href="/../auth/logout">Log out</a></span>
@@ -18,7 +19,7 @@
                     <span class="content"><a href="/../auth/login">Join/Log In With Us</a></span>
                     {{/if}}
                     <!-- Modal for Login -->
-                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                    {{!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
                         tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="dialog">
                             <div class="content">
@@ -61,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
                 <div class="help">
