@@ -1,0 +1,18 @@
+* {
+  font-size: 16px;
+}
+h5 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 550;
+}
+.card-link-secondary {
+  border: 0;
+  background: rgba(255, 255, 255, 0);
+  color: #007bff;
+}
+.card-link-secondary:hover {
+  color: rgb(39, 39, 39);
+}

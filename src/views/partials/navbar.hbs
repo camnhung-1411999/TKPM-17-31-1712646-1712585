@@ -10,7 +10,8 @@
                 </div>
             </div>
             <div class="right">
-                <div class="modal-1" data-toggle="modal" data-target="#staticBackdrop">
+                {{!-- data-toggle="modal" --}}
+                <div class="modal-1"  data-target="#staticBackdrop">
                     {{#if user.username}}
                     <span class="content">{{user.username}}</span>
                     <span class="content ml-5"> <a href="/../auth/logout">Log out</a></span>
@@ -18,7 +19,7 @@
                     <span class="content"><a href="/../auth/login">Join/Log In With Us</a></span>
                     {{/if}}
                     <!-- Modal for Login -->
-                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+                    {{!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
                         tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="dialog">
                             <div class="content">
@@ -61,27 +62,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
                 <div class="help">
                     <span class="content">Help</span>
                     <div class="drop-down">
                         <ul class="list">
-                            <li class="item"> <a class="content" href="#">How to eat = đũa</a></li>
-                            <li class="item"> <a class="content" href="#">How to eat = miệng</a></li>
-                            <li class="item"> <a class="content" href="#">Cách tắm </a></li>
-                            <li class="item"> <a class="content" href="#">Cách đi vệ sinh</a></li>
-                            <li class="item"> <a class="content" href="#">Cách đi</a></li>
-                            <li class="item"> <a class="content" href="#">Cách ngủ</a></li>
-                            <li class="item"> <a class="content" href="#">Cách khóc</a></li>
-                            <li class="item"> <a class="content" href="#">Cách cười</a></li>
-
+                            <li class="item"> <a class="content" href="tel:0967945772"><i class="fa fa-phone-square" aria-hidden="true"></i> Hotline </a></li>
+                            <li class="item"> <a class="content" href="#">About Us</a></li>
+                            <li class="item"> <a class="content" href="#">Team </a></li>
                         </ul>
                     </div>
                 </div>
+                 <div class="cart">
+                    <a href="/favorite"><i class="icon fas fa-heart"></i></a>
+                </div>
                 <div class="cart">
-                    <i class="icon fas fa-shopping-cart"></i>
+                    <a href="/cart"><i class="icon fas fa-shopping-cart"></i></a>
                 </div>
                 <div class="location">
                     <a aria-label="dumemay" title="Selected Location: VN" class="wrap">

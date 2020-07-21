@@ -51,33 +51,32 @@
                         <th scope="col">EMAIL</th>
                         <th scope="col">PHONE NUMBER</th>
                         <th scope="col">ADDRESS</th>
-                        <th scope="col">LIST BILL</th>
+                        <th scope="col">LIST PRODUCT</th>
+                        <th scope="col">SUM PRICE</th>
                         <th scope="col">STATUS</th>
                     </tr>
                 </thead>
 
                 <tbody id="productList"></tbody>
-                {{!-- {{#if checkbid}}
+                 {{#if !list}}
+                 <tr style="text-align: center; font-size:15px;">
+                    <td class="pt-3">{{this.username}}</td>
+                    <td class="pt-3">{{this.name}}</td>
+                    <td class="pt-3">{{this.email}}</td>
+                    <td class="pt-3">{{this.phone}}</td>
+                    <td class="pt-3">{{this.deliveryadress}}</td>
+                    <td class="pt-3"><a href="/../bill/detail">more</a></td>
+                    <td class="pt-3">10.000</td>
+                    <td class="pt-3">{{this.status}}</td>
+                </tr>
+                {{else}} 
+
+                {{#each list}}
                 <tr>
-                    <h3 style="color: rgb(159, 159, 160);">NO ONE ON LIST</h3>
+                    <h3 style="color: rgb(159, 159, 160);">NO ORDER ON LIST</h3>
                 </tr>
-                {{else}} --}}
-
-                {{!-- {{#each listbid}} --}}
-
-                <tr style="text-align: center; font-size:15px;">
-                    <td class="pt-3">camnhung</td>
-                    <td class="pt-3">ABC</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
-                </tr>
-
-
-                {{!-- {{/each}}
-                {{/if}} --}}
+                {{/each}}
+                {{/if}}
                 </tbody>
 
             </table>

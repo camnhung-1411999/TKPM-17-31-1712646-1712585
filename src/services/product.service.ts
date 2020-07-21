@@ -26,7 +26,7 @@ class productService {
   }
   static async update(
     idproduct: String,
-    product: IProduct
+    product: Object
   ): Promise<IProduct | null> {
     return await ProductCollection.update({ idproduct }, product);
   }
