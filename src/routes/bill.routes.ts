@@ -7,8 +7,8 @@ router.get(
     BillController.list
 )
 
-router.put(
-    '/:code',
+router.post(
+    '/update',
     BillController.update
 )
 

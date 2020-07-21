@@ -30,8 +30,5 @@ router.get(
 router.post(
     '/login',
     check.account,
-    (req,res)=>{
-        res.redirect('/home');
-    }
 )
 export default router;
