@@ -39,6 +39,7 @@ const billSchema = new mongoose.Schema({
     status: String,
     code: String,
     products: [IProBillSchema],
+    sumprice: String
 },
 {timestamps: true});
 const BillCollection = mongoose.model<IBill>("bill", billSchema);

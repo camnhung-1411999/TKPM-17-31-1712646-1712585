@@ -12,6 +12,7 @@ import userService from "../services/user.service";
 
 
 import BillCollection from '../models/bill.model';
+import { number } from "joi";
 class CartController {
   static Cart(req: Request, res: Response) {
     Promise.resolve(
@@ -34,7 +35,7 @@ class CartController {
   }
 
   static BillUser(req: Request, res: Response){
-    res.send("bill user");
+    res.render('pay/bill',{ title:"Bill's"+ req.user.username});
   }
 
   static async PostCheckOut(req: Request, res: Response) {
@@ -52,6 +53,21 @@ class CartController {
         proInBills.push(proInBill);
       });
     }
+
+    let sum: number = 0;
+    proInBills.forEach((element, index) => {
+      let arr = element.price.split(',');
+      let str = '';
+      arr.map((value) => {
+          str += value;
+      })
+      sum += Number(str) * Number(element.numbuy);
+  });
+  let temp = String(sum);
+  let result = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+
+
+
     const num = await (await billService.list()).length;
     let bill: IBill = {
       code: req.user.username + num,
@@ -61,6 +77,7 @@ class CartController {
       phone: req.body.phone,
       deliveryadress: req.body.address,
       products: proInBills,
+      sumprice: result,
       status: 'Processing..'
     };
     billService.create(bill);

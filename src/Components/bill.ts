@@ -13,6 +13,7 @@ export interface IBill{
     phone: String,
     deliveryadress: String,
     products: IProBill[],
+    sumprice: String,
     status:String
 }
 
