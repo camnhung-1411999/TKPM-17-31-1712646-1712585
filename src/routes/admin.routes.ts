@@ -14,12 +14,6 @@ router.get(
         res.render('admin/categories',{title:"Manage categories"});
     }
 )
-router.get(
-    '/user',
-    (req,res)=>{
-        res.render('admin/user',{title:"Manager user"})
-    }
-)
 
 router.get(
     '/order',

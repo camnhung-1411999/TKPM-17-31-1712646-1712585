@@ -56,7 +56,6 @@ class CartController {
       deliveryadress: req.body.address,
       products: proInBills,
     };
-    console.log(bill);
     billService.create(bill);
     res.redirect('/cart');
     
@@ -94,9 +93,6 @@ class CartController {
               price: result.price,
             });
             cart.save();
-            // result.numberproduct =
-            //   Number(result.numberproduct) - Number(num) + "";
-            // productService.update(idproduct, result);
           }
         } else {
           res.cookie("addtocart", true);

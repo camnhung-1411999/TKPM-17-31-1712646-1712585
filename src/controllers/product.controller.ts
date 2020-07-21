@@ -2,41 +2,41 @@ import productService from "../services/product.service";
 import { IProduct } from "../models/product.model";
 import { Request, Response } from "express";
 import Image from "../Components/image";
-import { title } from "process";
-import { type } from "os";
 var cloudinary = require("cloudinary");
+
+import categogyService from "../services/category.service";
+
 cloudinary.config({
   cloud_name: "hoang-man-1108",
   api_key: "185155598515121",
   api_secret: "eEp6LeeY1ak80gVdSmKpb5wMHqY",
 });
 class ProductController {
-  static products(req: Request, res: Response) {
+  static async products(req: Request, res: Response) {
     let page: number = Number(req.query.page) || 1;
     if (page < 1) page = 1;
-    Promise.resolve(
-      productService.listPage(page).then(async (result) => {
-        let total = await productService.count();
-        let nPages = Math.floor(total / 8);
-        if (total % 8 > 0) nPages++;
-        const page_numbers = [];
-        for (let i = 1; i <= nPages; i++) {
-          page_numbers.push({
-            value: i,
-            isCurrentPage: i === +page,
-          });
-        }
-        res.render("products/products", {
-          title: "Sản phẩm",
-          listproducts: result,
-          all: true,
-          page_numbers,
-          prev_value: +page - 1,
-          next_value: +page + 1,
-          user:req.user
-        });
-      })
-    );
+    let result = await Promise.resolve(productService.listPage(page));
+    let total = await productService.count();
+    let nPages = Math.floor(total / 8);
+    if (total % 8 > 0) nPages++;
+    const page_numbers = [];
+    for (let i = 1; i <= nPages; i++) {
+      page_numbers.push({
+        value: i,
+        isCurrentPage: i === +page,
+      });
+    }
+    let categories = await Promise.resolve(categogyService.list());
+    res.render("products/products", {
+      title: "Sản phẩm",
+      listproducts: result,
+      all: true,
+      categories,
+      page_numbers,
+      prev_value: +page - 1,
+      next_value: +page + 1,
+      user: req.user
+    });
   }
 
   static create(req: Request, res: Response) {
@@ -75,9 +75,7 @@ class ProductController {
       Women = false,
       Kids = false;
     let type = req.params.type;
-    if (type === "Men") Men = true;
-    else if (type === "Women") Women = true;
-    else if (type === "Kids") Kids = true;
+
     let page: number = Number(req.query.page) || 1;
     if (page < 1) page = 1;
     Promise.resolve(
@@ -92,16 +90,29 @@ class ProductController {
             isCurrentPage: i === +page,
           });
         }
+        let categories = await Promise.resolve(categogyService.list());
+        // code, name, number. click
+
+        let arrtemp: any = [];
+        categories.map(value => {
+          let temp = { code: value.code, name: value.name, isEnabled: false };
+          if (type === temp.code) {
+            temp.isEnabled = true;
+          }
+          arrtemp.push(temp);
+        });
+
         res.render("products/products", {
           title: "Products's " + req.params.type,
           listproducts: result,
           Men,
           Women,
           Kids,
+          categories: arrtemp,
           page_numbers,
           prev_value: +page - 1,
           next_value: +page + 1,
-          user:req.user
+          user: req.user
         });
       })
     );
@@ -117,7 +128,7 @@ class ProductController {
           res.render("products/informationproduct", {
             title: result.name,
             product: result,
-            user:req.user
+            user: req.user
           });
         } else {
           res.send({ error: 404, message: "Cannot find product in database" });

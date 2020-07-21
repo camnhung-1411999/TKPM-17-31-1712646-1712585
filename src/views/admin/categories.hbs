@@ -19,15 +19,15 @@
                 </div>
                 <form method="post"style="margin-left:10px!important">
                     <h3 for="" class="mt-5">Name category:</h3>
-                    <input type="text" name="insert" class="btn btn-secondary"
+                    <input type="text" name="name" class="btn btn-secondary"
                         style="width:467px!important; height:50px!important; font-size:15px">
                     <h3 for="" class="mt-5">Id category:</h3>
-                    <input type="text" name="idcat" class="btn btn-secondary"
+                    <input type="text" name="code" class="btn btn-secondary"
                         style="width:467px!important;height:50px !important; font-size:15px">
 
                     <div class="modal-footer mt-5">
                         <button type="button"style="width:80px" class="btn btn-secondary btn-lg" data-dismiss="modal">No</button>
-                        <input type="submit" style="width:80px" formaction="/../users/insertcategory" class="btn btn-outline-dark btn-lg" value="Yes">
+                        <input type="submit" style="width:80px" formaction="/../category/" class="btn btn-outline-dark btn-lg" value="Yes">
                     </div>
                 </form>
             </div>
@@ -43,7 +43,7 @@
 
             </tr>
         </thead>
-
+        {{#each list}}
         <tbody id="productList">
             <tr>
                 <td style="text-align: center!important;padding-top:10px">
@@ -86,11 +86,11 @@
 
                 </td>
                 <td style="text-align: center!important; font-size:15px;padding-top:10px ">
-                    {{!-- {{this.cate}} --}} Cẩm nhung
+                    {{this.name}}
                 </td>
 
                 <td style="text-align: center!important; font-size:15px;padding-top:10px">
-                    {{!-- {{this.idcat}} --}} cate id
+                    {{this.code}}
                 </td>
 
 
@@ -129,5 +129,6 @@
                 </td>
             </tr>
         </tbody>
+        {{/each}}
     </table>
 </div>

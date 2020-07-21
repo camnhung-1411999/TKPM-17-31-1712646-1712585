@@ -1,5 +1,5 @@
 import express from "express";
-import { authenticateAccessToken} from "../utils/jsonwebtoken";
+import { authenticateAccessToken } from "../utils/jsonwebtoken";
 const router = express.Router();
 import productController from "../controllers/product.controller";
 const fs = require("fs");
@@ -12,6 +12,7 @@ import authRoutes from "./auth.routes";
 import adminRoutes from "./admin.routes";
 import cartRoutes from "./cart.routes";
 import favoriteRoutes from "./favorite.routes";
+import categoryRoutes from "./category.routes";
 router.get("/home", authenticateAccessToken, (req, res) => {
   res.render("home", {
     title: "Home",
@@ -34,7 +35,8 @@ router.post(
 );
 
 router.use("/users", userRoutes);
-router.use("/products", authenticateAccessToken, productRoutes);
+router.use("/category", categoryRoutes);
+router.use("/products", productRoutes);
 router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);

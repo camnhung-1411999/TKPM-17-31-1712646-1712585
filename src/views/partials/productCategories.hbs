@@ -4,9 +4,11 @@
             <li class="list-group-item">
               <a href="/products" style="color:{{#if all}} blue; font-weight:550{{else}} black{{/if}}" >Categories <i class="fas fa-minus float-right"></i></a>
             </li>
-            <li class="list-group-item" ><a href="/products/Men" style="color:{{#if Men}} blue; font-weight:550{{else}} black{{/if}}"  >Men</a></li>
-            <li class="list-group-item" ><a href="/products/Women" style="color: {{#if Women}} blue; font-weight:550 {{else}}black{{/if}}">Women</a></li>
-            <li class="list-group-item" ><a href="/products/Kids" style="color:{{#if Kids}} blue; font-weight:550 {{else}} black {{/if}}">Kids</a></li>
+
+            {{#each categories}}
+            <li class="list-group-item" ><a href="/products/{{this.code}}" style="color:{{#if this.isEnabled}} blue; font-weight:550{{else}} black{{/if}}"  >{{this.name}}</a></li>
+            {{/each}}
+          
         </ul>
     </div>
 </div>

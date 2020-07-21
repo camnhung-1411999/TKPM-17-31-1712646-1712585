@@ -30,16 +30,16 @@
                 {{else}} --}}
 
                 {{!-- {{#each listbid}} --}}
-
+                {{#each list}}
                 <tr style="text-align: center; font-size:15px;">
-                    <td class="pt-3">camnhung</td>
-                    <td class="pt-3">ABC</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
-                    <td class="pt-3">abc</td>
+                    <td class="pt-3">{{this.username}}</td>
+                    <td class="pt-3">{{this.name}}</td>
+                    <td class="pt-3">{{this.email}}</td>
+                    <td class="pt-3">{{this.phone}}</td>
+                    <td class="pt-3">{{this.address}}</td>
+                    <td class="pt-3">none</td>
                 </tr>
-
+                {{/each}}
 
                 {{!-- {{/each}}
                 {{/if}} --}}
