@@ -33,6 +33,10 @@ class CartController {
     }))
   }
 
+  static BillUser(req: Request, res: Response){
+    res.send("bill user");
+  }
+
   static async PostCheckOut(req: Request, res: Response) {
     let product: ICart[] | null = await Promise.resolve(cartService.list(req.user.username));
     let proInBills: IProBill[] = [];
