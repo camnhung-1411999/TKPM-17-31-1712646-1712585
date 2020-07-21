@@ -11,8 +11,9 @@ import productRoutes from "./product.routes";
 import authRoutes from "./auth.routes";
 import adminRoutes from "./admin.routes";
 import cartRoutes from "./cart.routes";
-import favoriteRoutes from "./favorite.routes";
 import categoryRoutes from "./category.routes";
+import favoriteRoutes from "./favorite.routes";
+import billRoutes from './bill.routes';
 router.get("/home", authenticateAccessToken, (req, res) => {
   res.render("home", {
     title: "Home",
@@ -41,5 +42,6 @@ router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);
 router.use("/favorite", authenticateAccessToken, favoriteRoutes);
+router.use('/bill', billRoutes);
 
 export default router;

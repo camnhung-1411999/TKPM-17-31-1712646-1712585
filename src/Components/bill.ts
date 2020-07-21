@@ -6,11 +6,13 @@ export interface IProBill{
     price: String,
 }
 export interface IBill{
+    code: String,
     username: String,
     name: String,
     email: String,
     phone: String,
     deliveryadress: String,
     products: IProBill[],
+    status:String
 }
 

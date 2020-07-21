@@ -43,22 +43,25 @@ class CartController {
           nameproduct: element.nameproduct,
           type: element.type,
           numbuy: element.numproduct,
-          price: element.price
+          price: element.price,
         };
         proInBills.push(proInBill);
       });
     }
+    const num = await (await billService.list()).length;
     let bill: IBill = {
+      code: req.user.username + num,
       username: req.user.username,
       name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
       deliveryadress: req.body.address,
       products: proInBills,
+      status: 'Processing..'
     };
     billService.create(bill);
     res.redirect('/cart');
-    
+
     if (product) {
       product.forEach( async element => {
         cartService.remove( String(element.idproduct), String(element.type));

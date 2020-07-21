@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
 type IProBill = {
+    code: String,
     nameproduct: String,
     idproduct: String,
     type: String,
     numbuy: String,
     price: String,
+    status: String
 }
 export type IBill = mongoose.Document & {
+    code: String,
     username: String,
     name: String,
     email: String,
@@ -14,6 +17,7 @@ export type IBill = mongoose.Document & {
     deliveryadress: String,
     products: IProBill[],
     sumprice: String,
+    status: String,
 }
 
 const IProBillSchema = new mongoose.Schema(
@@ -32,6 +36,8 @@ const billSchema = new mongoose.Schema({
     email: String,
     phone: String,
     deliveryadress: String,
+    status: String,
+    code: String,
     products: [IProBillSchema],
 },
 {timestamps: true});
