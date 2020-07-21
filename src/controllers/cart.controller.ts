@@ -81,7 +81,7 @@ class CartController {
         if (result) {
           if (result) {
             let num: String = req.body.number;
-            let name: String = "hoangman";
+            let name: String = req.user.username;
             let temp: String = result.price;
             result.price = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
             const cart = new CartCollection({
