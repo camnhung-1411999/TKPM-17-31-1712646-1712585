@@ -43,7 +43,7 @@
 
             </tr>
         </thead>
-
+        {{#each list}}
         <tbody id="productList">
             <tr>
                 <td style="text-align: center!important;padding-top:10px">
@@ -86,11 +86,11 @@
 
                 </td>
                 <td style="text-align: center!important; font-size:15px;padding-top:10px ">
-                    {{!-- {{this.cate}} --}} Cẩm nhung
+                    {{this.name}}
                 </td>
 
                 <td style="text-align: center!important; font-size:15px;padding-top:10px">
-                    {{!-- {{this.idcat}} --}} cate id
+                    {{this.code}}
                 </td>
 
 
@@ -129,5 +129,6 @@
                 </td>
             </tr>
         </tbody>
+        {{/each}}
     </table>
 </div>
