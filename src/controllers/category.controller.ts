@@ -6,7 +6,8 @@ class CategoryController {
         Promise.resolve(CategoryService.list()).then((result) =>{
             res.render('admin/categories', {
                 title: "Manage categories",
-                list: result
+                list: result,
+                user: "Admin" 
             });
         });
     }

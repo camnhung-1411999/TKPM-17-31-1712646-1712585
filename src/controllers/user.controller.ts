@@ -19,14 +19,19 @@ class UserController {
         let username: string = req.params.username;
         return userService.find(username);
     }
-    static create(req: Request) {
+    static create(req: Request, res: Response) {
         let user: IUser = {
             ...req.body
         }
         user.name = req.body.firstName + ' ' + req.body.lastName;
-        Promise.resolve(Password.hashPassword(user.password)).then((result) => {
+        Promise.resolve(Password.hashPassword(user.password)).then(async(result) => {
             user.password = result;
-            return userService.create(user);
+            await userService.create(user);
+            if(user.username === "admin"){
+                res.redirect('/admin');
+            }else{
+                res.redirect('/home');
+            }
         });
     }
     static update(req: Request) {

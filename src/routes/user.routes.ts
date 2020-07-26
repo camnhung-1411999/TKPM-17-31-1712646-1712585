@@ -25,9 +25,6 @@ router.post(
   validation.user,
   check.User,
   userController.create,
-  (res,req) =>{
-    req.redirect('/home');
-  }
 );
 
 router.put(

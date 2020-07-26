@@ -70,7 +70,12 @@ export default class Auth {
                             password: value.password
                         });
                         res.cookie('token', accessToken);
-                        res.redirect('/home');
+                        if (req.body.user === "admin") {
+                            res.redirect('/admin');
+                        }
+                        else {
+                            res.redirect('/home');
+                        }
                     }
 
                     else {
@@ -80,6 +85,7 @@ export default class Auth {
                 }
             });
         }
+
     }
     public static async User(req: Request, res: Response, next: NextFunction) {
         const value = await userService.find(req.body.username);

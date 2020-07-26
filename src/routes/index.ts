@@ -6,6 +6,7 @@ const fs = require("fs");
 import multer from "multer";
 var upload = multer({ dest: "uploads/" });
 
+import checkRole from "../utils/checkrole";
 import userRoutes from "./user.routes";
 import productRoutes from "./product.routes";
 import authRoutes from "./auth.routes";
@@ -35,13 +36,13 @@ router.post(
   productController.postUpload
 );
 
-router.use("/users", userRoutes);
-router.use("/category", categoryRoutes);
+router.use("/users",authenticateAccessToken,checkRole, userRoutes);
+router.use("/category",authenticateAccessToken,checkRole, categoryRoutes);
 router.use("/products",authenticateAccessToken, productRoutes);
 router.use("/auth", authRoutes);
-router.use("/admin", adminRoutes);
+router.use("/admin",authenticateAccessToken,checkRole, adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);
 router.use("/favorite", authenticateAccessToken, favoriteRoutes);
-router.use('/bill', billRoutes);
+router.use('/bill',authenticateAccessToken,checkRole, billRoutes);
 
 export default router;
