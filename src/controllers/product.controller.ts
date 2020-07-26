@@ -1,10 +1,14 @@
 import productService from "../services/product.service";
 import { IProduct } from "../models/product.model";
+import commentService from "../services/comment.service";
+import { IComment } from '../Components/comment';
 import { Request, Response } from "express";
 import Image from "../Components/image";
+import moment from 'moment';
+import categogyService from "../services/category.service";
+
 var cloudinary = require("cloudinary");
 
-import categogyService from "../services/category.service";
 
 cloudinary.config({
   cloud_name: "hoang-man-1108",
@@ -121,20 +125,62 @@ class ProductController {
     let idproduct: string = req.params.id;
     let type: string = req.params.type;
     Promise.resolve(productService.find(type, idproduct)).then(
-      (result: IProduct | null) => {
+      async (result: IProduct | null) => {
         if (result) {
           let temp: String = result.price;
           result.price = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+
+          let arr = await commentService.list(result.idproduct, result.type);
+          let comments: any = [];
+          if (arr) {
+            arr.map((value, index) => {
+              let rates = [false, false, false, false, false]
+
+              for (let i = 0; i < value.rate; i++) {
+                rates[i] = !rates[i];
+              }
+
+
+              let temp = {
+                username: value.username,
+                comment: value.comment,
+                idproduct: value.idproduct,
+                type: value.type,
+                time: value.time,
+                rates
+              }
+              comments.push(temp);
+            });
+
+            console.log(comments);
+          }
+
           res.render("products/informationproduct", {
             title: result.name,
             product: result,
-            user: req.user
+            user: req.user,
+            comments
           });
         } else {
           res.send({ error: 404, message: "Cannot find product in database" });
         }
       }
     );
+  }
+
+  static async PostComments(req: Request, res: Response) {
+    let date = new Date();
+    let time = moment(date).format("DD-MM-YYYY hh:mm");
+    let comment: IComment = {
+      username: req.user.username,
+      comment: req.body.comment,
+      rate: req.body.rate,
+      idproduct: req.params.idproduct,
+      type: req.params.type,
+      time: time
+    }
+    await commentService.create(comment);
+    res.redirect('/products/' + comment.idproduct + '/' + comment.type);
   }
 }
 

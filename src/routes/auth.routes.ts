@@ -2,7 +2,6 @@ import validation from '../utils/validation';
 import check from '../utils/auth';
 
 import express = require('express');
-import { fail } from 'assert';
 
 const router = express.Router();
 

@@ -11,8 +11,6 @@ import { IBill, IProBill } from '../Components/bill';
 import userService from "../services/user.service";
 
 
-import BillCollection from '../models/bill.model';
-import { number } from "joi";
 class CartController {
   static Cart(req: Request, res: Response) {
     Promise.resolve(
@@ -34,8 +32,10 @@ class CartController {
     }))
   }
 
-  static BillUser(req: Request, res: Response){
-    res.render('pay/bill',{ title:"Bill's"+ req.user.username});
+  static async BillUser(req: Request, res: Response){
+    let bills = await Promise.resolve(billService.listFollowUser(req.user.username));
+    console.log(bills);
+    res.render('pay/bill',{ title:"Bill's"+ req.user.username, bills});
   }
 
   static async PostCheckOut(req: Request, res: Response) {
@@ -132,5 +132,6 @@ class CartController {
     }))
 
   }
+
 }
 export default CartController;

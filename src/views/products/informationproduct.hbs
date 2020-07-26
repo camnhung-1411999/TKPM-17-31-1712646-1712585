@@ -355,9 +355,9 @@
             <!-- Đánh giá sản phẩm -->
             <div class="reviews-product">
                 <div class="reviews-product-header">
-                    <p class="reviews-product-title">ĐÁNH GIÁ SẢN PHẨM</p>
+                    <p class="reviews-product-title">HỎI ĐÁP VÀ ĐÁNH GIÁ SẢN PHẨM</p>
                 </div>
-                <div class="reviews-product-star">
+                {{!-- <div class="reviews-product-star">
                     <div class="reviews-product-star-left">
                         <div class="reviews-product-star-left-number"> <span
                                 class="reviews-product-star-left-number-big">4</span>
@@ -389,40 +389,54 @@
                                 (48)</a>
                         </div>
                     </div>
+                </div> --}}
+                <div class="container">
+                    <form method="post" action="/products/{{product.idproduct}}/{{product.type}}/comments">
+                        <div class="row">
+                            <div class="form-group pl-3">
+                                <label for="" style="font-size: 14px;" name="rate">Rate</label>
+                                <select class="form-control" style="font-size: 14px; height: 30px" name="rate" id="">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3" style="width: 50%">
+                            <textarea cols="20" rows="3" style="font-size: 14px;" class="form-control" name="comment" required></textarea>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" style="font-size: 14px;">Comment</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="reviews-product-comment-wrap">
+                  {{#each comments}}
                     <div class="reviews-product-comment">
                         <div class="reviews-product-comment-avatar">
-                            <img class="reviews-product-comment-avatar-img" src="assets/img/abc.jpg">
+                            <img class="reviews-product-comment-avatar-img" src="https://cafebiz.cafebizcdn.vn/thumb_w/600/2019/photo1568425154466-1568425154695-crop-1568425163594659826294.jpg">
                         </div>
                         <div class="reviews-product-comment-main">
-                            <a href="#manthichbuscu882" class="reviews-product-comment-author">manthichbuscu882</a>
+                            <a href="#" class="reviews-product-comment-author">{{this.username}}</a>
                             <div class="reviews-product-comment-star">
                                 <div class="sao-sao-sao star-change-again">
+                                    {{#each this.rates}}
+                                    {{#if this}}
                                     <i class="sao-sao fas fa-star"></i>
+                                    {{else}}
                                     <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
+                                    {{/if}}
+                                    {{/each}}
                                 </div>
                             </div>
                             <div class="reviews-product-comment-content">
-                                Tuy chim (buồi,cu) của mình chỉ bằng cây bút chì nhưng mình sẽ quyết tâm mài duỗi nó trở thành cây kim. Liên quan lắm là quyển sách này đọc rất ok bạn nhớ :v
+                                {{this.comment}}
                             </div>
-                            <div class="reviews-product-comment-list-img-rate">
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-img">
-
-                                </div>
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/abcd.jpg" alt="" class="reviews-product-comment-img-rate-img">
-                                </div>
-                                <!-- <div class="reviews-product-comment-img-rate-zoom">
-                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
-                                        </div> -->
-                            </div>
+                            
                             <div class="reviews-product-comment-time">
-                                2020-06-25 1:39
+                                {{this.time}}
                             </div>
                             <div class="reviews-product-comment-rate-like">
                                 <div class="reviews-product-comment-rate-like-left">
@@ -438,187 +452,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="reviews-product-comment">
-                        <div class="reviews-product-comment-avatar">
-                            <img class="reviews-product-comment-avatar-img" src="assets/img/ly.jpg">
-                        </div>
-                        <div class="reviews-product-comment-main">
-                            <a href="#roisaothichgi" class="reviews-product-comment-author">lythichliemloz</a>
-                            <div class="reviews-product-comment-star">
-                                <div class="sao-sao-sao star-change-again">
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="reviews-product-comment-content">
-                                Tối nay tối nay tối nay tối nay tối nay tối nay tối nayyyyyyyyy
-                            </div>
-                            <div class="reviews-product-comment-list-img-rate">
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/ly1.jpg" alt="" class="reviews-product-comment-img-rate-img">
-
-                                </div>
-
-                                <!-- <div class="reviews-product-comment-img-rate-zoom">
-                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
-                                        </div> -->
-                            </div>
-                            <div class="reviews-product-comment-time">
-                                2020-06-19 12:05
-                            </div>
-                            <div class="reviews-product-comment-rate-like">
-                                <div class="reviews-product-comment-rate-like-left">
-                                    <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
-                                    <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
-                                </div>
-                                <div class="reviews-product-comment-rate-like-right">
-                                    <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
-                                    <div class="reviews-product-comment-rate-like-right-hover">
-                                        <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reviews-product-comment">
-                        <div class="reviews-product-comment-avatar">
-                            <img class="reviews-product-comment-avatar-img" src="assets/img/nhat.jpg">
-                        </div>
-                        <div class="reviews-product-comment-main">
-                            <a href="#imnhatnhatne091" class="reviews-product-comment-author">imnhatnhat091</a>
-                            <div class="reviews-product-comment-star">
-                                <div class="sao-sao-sao star-change-again">
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="reviews-product-comment-content">
-                                Đọc xong quyển sách này tôi bỗng muốn làm ngay 1 đoạn thơ: <br>
-                                <i>Cánh đồng xanh làn mây trắng</i><br>
-                                <i>Anh yêu nắng hay là yêu em.</i>
-                            </div>
-                            <div class="reviews-product-comment-list-img-rate">
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/nhat1.jpg" alt="" class="reviews-product-comment-img-rate-img">
-
-                                </div>
-
-                                <!-- <div class="reviews-product-comment-img-rate-zoom">
-                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
-                                        </div> -->
-                            </div>
-                            <div class="reviews-product-comment-time">
-                                2020-03-29 23:05
-                            </div>
-                            <div class="reviews-product-comment-rate-like">
-                                <div class="reviews-product-comment-rate-like-left">
-                                    <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
-                                    <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
-                                </div>
-                                <div class="reviews-product-comment-rate-like-right">
-                                    <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
-                                    <div class="reviews-product-comment-rate-like-right-hover">
-                                        <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reviews-product-comment">
-                        <div class="reviews-product-comment-avatar">
-                            <img class="reviews-product-comment-avatar-img" src="assets/img/minh.jpg">
-                        </div>
-                        <div class="reviews-product-comment-main">
-                            <a href="#minhnhona" class="reviews-product-comment-author">na_oi_la_na</a>
-                            <div class="reviews-product-comment-star">
-                                <div class="sao-sao-sao star-change-again">
-                                    <i class="sao-sao fas fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                    <i class="sao-sao far fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="reviews-product-comment-content">
-                                <b>Làm ơn</b> hãy bỏ <u>block</u> anh đi mà. Đừng làm vậy tội nghiệp :(
-                            </div>
-                            <div class="reviews-product-comment-list-img-rate">
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/minh1.jpg" alt="" class="reviews-product-comment-img-rate-img">
-
-                                </div>
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/minh2.png" alt="" class="reviews-product-comment-img-rate-img">
-                                </div>
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/minh3.jpg" alt="" class="reviews-product-comment-img-rate-img">
-                                </div>
-                                <div class="reviews-product-comment-img-rate">
-                                    <img src="/assets/img/minh4.jpg" alt="" class="reviews-product-comment-img-rate-img">
-                                </div>
-                                <!-- <div class="reviews-product-comment-img-rate-zoom">
-                                            <img src="/assets/img/abc.jpg" alt="" class="reviews-product-comment-img-rate-zoom-img">
-                                        </div> -->
-                            </div>
-                            <div class="reviews-product-comment-time">
-                                2020-06-25 2:29
-                            </div>
-                            <div class="reviews-product-comment-rate-like">
-                                <div class="reviews-product-comment-rate-like-left">
-                                    <a href="#"><i class="reviews-product-comment-rate-like-like far fa-thumbs-up"></i></a>
-                                    <span class="reviews-product-comment-rate-like-content">Hữu ích?</span>
-                                </div>
-                                <div class="reviews-product-comment-rate-like-right">
-                                    <a class="reviews-product-comment-rate-like-right-icon" href="#"><i class="fas fa-ellipsis-v"></i></a>
-                                    <div class="reviews-product-comment-rate-like-right-hover">
-                                        <span class="reviews-product-comment-rate-like-right-hover-content">Báo Cáo</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  {{/each}}
                 </div>
-                <div class="reviews-product-page">
-                    <ul class="pagination home-product-pagination">
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">
-                                <i class="pagination-item-icon fas fa-angle-left"></i>
-                            </a>
-                        </li>
-                        <li class="pagination-item pagination-item-active">
-                            <a href="" class="pagination-item-link">1</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">2</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">3</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">4</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">5</a>
-                        </li>
-                        <li class="pagination-item pagination-item-link-nopointer">
-                            <a href="" class="pagination-item-link">...</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">14</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item-link">
-                                <i class="pagination-item-icon fas fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+             
             </div>
         </div>
     </div>

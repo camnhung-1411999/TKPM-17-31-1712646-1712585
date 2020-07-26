@@ -1,5 +1,4 @@
 import ProductCollection, { IProduct } from "../models/product.model";
-import { type } from "os";
 
 class productService {
   // static async list(): Promise<IProduct[] | null> {

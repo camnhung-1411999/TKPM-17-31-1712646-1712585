@@ -37,7 +37,7 @@ router.post(
 
 router.use("/users", userRoutes);
 router.use("/category", categoryRoutes);
-router.use("/products", productRoutes);
+router.use("/products",authenticateAccessToken, productRoutes);
 router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);

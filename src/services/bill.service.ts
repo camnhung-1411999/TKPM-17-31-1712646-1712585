@@ -14,5 +14,9 @@ class billService{
         const bill = await BillCollection.find();
         return bill;
     }
+
+    static async listFollowUser(username: string):Promise<IBill[]| null>{
+        return await BillCollection.find({username});
+    }
 }
 export default billService;
