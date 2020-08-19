@@ -5,7 +5,7 @@ const router = express.Router();
 // import multer from 'multer';
 // var upload = multer({dest:'uploads/'});
 
-router.get('/',productController.products)
+router.get('/',productController.products);
 
 router.get('/:type',productController.productsFollowType);
 

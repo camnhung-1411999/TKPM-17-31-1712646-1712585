@@ -20,12 +20,6 @@ router.get(
   '/:username',
   userController.find,
 );
-router.post(
-  '/',
-  validation.user,
-  check.User,
-  userController.create,
-);
 
 router.put(
   '/accounts/:username',

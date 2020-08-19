@@ -43,8 +43,6 @@ export default class Validation {
         }
         Joi.validate(checkBody, createSchema, (errors) => {
             if (errors) {
-                console.log("--------------------");
-                console.log(checkBody);
                 res.cookie('checkFail', true);
                 res.redirect('/auth/signup');
             } else {

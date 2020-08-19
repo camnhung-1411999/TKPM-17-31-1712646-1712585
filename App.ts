@@ -1,5 +1,6 @@
 import express =require('express');
 import bodyParser = require('body-parser');
+import loger  from 'morgan';
 var cookieParser = require('cookie-parser')
 var exphbs  = require('express-handlebars');
 var session = require('express-session');
@@ -42,7 +43,7 @@ app.use(
   })
 );
 app.use(bodyParser.json()); //database
-
+app.use(loger('dev'));
 // use session
 app.use(
   session({

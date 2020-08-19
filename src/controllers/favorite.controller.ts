@@ -8,7 +8,7 @@ class FavoriteController {
     static All(req: Request, res: Response) {
         let username = req.user.username;
         Promise.resolve(favoriteService.list(username).then((result: IFavorite[] | null) => {
-            res.render('favorite/favorite', { title: 'Favorite List', list: result,user:req.user });
+            res.render('favorite/favorite', { title: 'Favorite List', list: result,user:req.user, admin:true });
         }))
     }
 

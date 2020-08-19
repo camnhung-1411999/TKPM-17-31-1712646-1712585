@@ -95,7 +95,7 @@ export default class Auth {
                 password: req.body.password
             });
             res.cookie('token', accessToken);
-            res.redirect('/home');
+            // res.redirect('/home');
             next();
         } else {
             // signup user existed

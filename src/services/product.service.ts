@@ -1,14 +1,20 @@
 import ProductCollection, { IProduct } from "../models/product.model";
 
 class productService {
-  // static async list(): Promise<IProduct[] | null> {
-  //     return await ProductCollection.find();
-  // }
+  static async list(): Promise<IProduct[] | null> {
+      return await ProductCollection.find();
+  }
+  
   static async listPage(page: number): Promise<IProduct[] | null> {
     let limit: number = 8;
     let offset: number = (page - 1) * 8;
     return await ProductCollection.find().skip(offset).limit(limit);
   }
+
+  static async findByName(name: string): Promise<IProduct[]|null> {
+  return await ProductCollection.find({$text:{$search: name}}).limit(8);    
+  }
+
   static async listFollowType(type: String): Promise<IProduct[] | null> {
     return await ProductCollection.find({ type });
   }

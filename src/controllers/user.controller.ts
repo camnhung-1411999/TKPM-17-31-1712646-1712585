@@ -10,7 +10,8 @@ class UserController {
                 'admin/user',
                 {
                     title: "Manage user",
-                    list: result
+                    list: result, 
+                    admin: true
                 }
             )
         });

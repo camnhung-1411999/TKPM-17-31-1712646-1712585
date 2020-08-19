@@ -7,7 +7,8 @@ class CategoryController {
             res.render('admin/categories', {
                 title: "Manage categories",
                 list: result,
-                user: "Admin" 
+                user: "Admin",
+                admin: true
             });
         });
     }

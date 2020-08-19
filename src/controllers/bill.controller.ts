@@ -6,15 +6,14 @@ class BillController {
             res.render('admin/order',{
                 title: "Manage order",
                 list: result,
-                user: "Admin"
+                user: "Admin",
+                admin: true
             })
         })
     }
     static async update(req: Request, res: Response){
         const code = req.body.code;
-        console.log("code:"+ code);
         const status = req.body.status;
-        console.log("name:"+status )
 
         await BillService.update(code, status);
         res.redirect('/bill');

@@ -15,18 +15,14 @@ import cartRoutes from "./cart.routes";
 import categoryRoutes from "./category.routes";
 import favoriteRoutes from "./favorite.routes";
 import billRoutes from './bill.routes';
-router.get("/home", authenticateAccessToken, (req, res) => {
-  res.render("home", {
-    title: "Home",
-    user: req.user,
-  });
-});
-router.get("/", authenticateAccessToken, (req, res) => {
-  res.render("home", {
-    title: "Home",
-    user: req.user,
-  });
-});
+import homeRoutes from "./home.routes";
+
+import adminProductRoutes from './adminProduct.routes'
+
+import userController from '../controllers/user.controller';
+import validation from '../utils/validation';
+import check from '../utils/auth';
+
 
 
 router.get("/upload/newproduct", authenticateAccessToken, productController.upload);
@@ -36,7 +32,16 @@ router.post(
   productController.postUpload
 );
 
+router.post(
+  '/users',
+  validation.user,
+  check.User,
+  userController.create,
+);
+
+
 router.use("/users",authenticateAccessToken,checkRole, userRoutes);
+router.use('/admin/products',authenticateAccessToken,checkRole, adminProductRoutes);
 router.use("/category",authenticateAccessToken,checkRole, categoryRoutes);
 router.use("/products",authenticateAccessToken, productRoutes);
 router.use("/auth", authRoutes);
@@ -44,5 +49,7 @@ router.use("/admin",authenticateAccessToken,checkRole, adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);
 router.use("/favorite", authenticateAccessToken, favoriteRoutes);
 router.use('/bill',authenticateAccessToken,checkRole, billRoutes);
+
+router.use('/',homeRoutes);
 
 export default router;

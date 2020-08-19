@@ -2,7 +2,7 @@ import productService from "../services/product.service";
 import { IProduct } from "../models/product.model";
 import commentService from "../services/comment.service";
 import { IComment } from '../Components/comment';
-import { Request, Response } from "express";
+import { Request, Response, query } from "express";
 import Image from "../Components/image";
 import moment from 'moment';
 import categogyService from "../services/category.service";
@@ -17,36 +17,49 @@ cloudinary.config({
 });
 class ProductController {
   static async products(req: Request, res: Response) {
-    let page: number = Number(req.query.page) || 1;
-    if (page < 1) page = 1;
-    let result = await Promise.resolve(productService.listPage(page));
-    let total = await productService.count();
-    let nPages = Math.floor(total / 8);
-    if (total % 8 > 0) nPages++;
-    const page_numbers = [];
-    for (let i = 1; i <= nPages; i++) {
-      page_numbers.push({
-        value: i,
-        isCurrentPage: i === +page,
+    const query = req.query.search || null;
+    if (query) {
+      let result = await Promise.resolve(productService.findByName(query + ''));
+      let categories = await Promise.resolve(categogyService.list());
+
+      res.render("products/products", {
+        title: "Sản phẩm",
+        listproducts: result,
+        all: true,
+        categories
+      });
+    } else {
+      let page: number = Number(req.query.page) || 1;
+      if (page < 1) page = 1;
+      let result = await Promise.resolve(productService.listPage(page));
+      let total = await productService.count();
+      let nPages = Math.floor(total / 8);
+      if (total % 8 > 0) nPages++;
+      const page_numbers = [];
+      for (let i = 1; i <= nPages; i++) {
+        page_numbers.push({
+          value: i,
+          isCurrentPage: i === +page,
+        });
+      }
+      let categories = await Promise.resolve(categogyService.list());
+      res.render("products/products", {
+        title: "Sản phẩm",
+        listproducts: result,
+        all: true,
+        categories,
+        page_numbers,
+        prev_value: +page - 1,
+        next_value: +page + 1,
+        user: req.user
       });
     }
-    let categories = await Promise.resolve(categogyService.list());
-    res.render("products/products", {
-      title: "Sản phẩm",
-      listproducts: result,
-      all: true,
-      categories,
-      page_numbers,
-      prev_value: +page - 1,
-      next_value: +page + 1,
-      user: req.user
-    });
   }
+
 
   static create(req: Request, res: Response) {
     let product: IProduct = { ...req.body };
     var newproduct = productService.create(product);
-    console.log(newproduct);
     res.send("create new product");
   }
 

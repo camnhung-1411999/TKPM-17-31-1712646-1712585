@@ -7,7 +7,8 @@ router.get(
     (req,res)=>{
         res.render('admin/home',{
             title:"admin",
-            user: "Admin"
+            user: "Admin",
+            admin: true
         });
     }
 )

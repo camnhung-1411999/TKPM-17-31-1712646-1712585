@@ -20,7 +20,11 @@
   </head>
   <body>
     <div style="margin-top: 115px;">
+      {{#if admin}}
+      {{>navbarAdmin}}
+      {{else}}
       {{>navbar}}
+      {{/if}}
     </div>
 
 
