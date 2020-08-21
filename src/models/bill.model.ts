@@ -6,7 +6,8 @@ type IProBill = {
     type: String,
     numbuy: String,
     price: String,
-    status: String
+    status: String,
+    image: String,
 }
 export type IBill = mongoose.Document & {
     code: String,
@@ -27,6 +28,7 @@ const IProBillSchema = new mongoose.Schema(
         type: String,
         numbuy: String,
         price: String,
+        image: String,
     }
 )
 

@@ -7,6 +7,11 @@ router.get(
     BillController.list
 )
 
+router.get(
+    '/detail/:idbill',
+    BillController.infoBill
+);
+
 router.post(
     '/update',
     BillController.update

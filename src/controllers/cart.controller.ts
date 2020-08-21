@@ -34,7 +34,6 @@ class CartController {
 
   static async BillUser(req: Request, res: Response){
     let bills = await Promise.resolve(billService.listFollowUser(req.user.username));
-    console.log(bills);
     res.render('pay/bill',{ title:"Bill's"+ req.user.username, bills});
   }
 
@@ -49,6 +48,7 @@ class CartController {
           type: element.type,
           numbuy: element.numproduct,
           price: element.price,
+          image: element.image
         };
         proInBills.push(proInBill);
       });
@@ -122,6 +122,37 @@ class CartController {
           res.cookie("addtocart", true);
         }
         res.redirect("/products/" + idproduct + "/" + type + "/");
+      })
+    );
+  }
+
+  static PostBuyNow(req: Request, res: Response){
+    let idproduct = req.params.idproduct;
+    let type = req.params.type;
+
+    Promise.resolve(
+      productService.find(type, idproduct).then((result: IProduct | null) => {
+        if (result) {
+          if (result) {
+            let num: String = req.body.number;
+            let name: String = req.user.username;
+            let temp: String = result.price;
+            result.price = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+            const cart = new CartCollection({
+              username: name,
+              idproduct: result.idproduct,
+              image: result.image,
+              nameproduct: result.name,
+              type: result.type,
+              numproduct: num,
+              price: result.price,
+            });
+            cart.save();
+          }
+        } else {
+          res.cookie("addtocart", true);
+        }
+        res.redirect("/cart");
       })
     );
   }

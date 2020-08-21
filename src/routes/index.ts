@@ -1,5 +1,5 @@
 import express from "express";
-import { authenticateAccessToken } from "../utils/jsonwebtoken";
+import { authenticateAccessToken} from "../utils/jsonwebtoken";
 const router = express.Router();
 import productController from "../controllers/product.controller";
 const fs = require("fs");
@@ -16,7 +16,7 @@ import categoryRoutes from "./category.routes";
 import favoriteRoutes from "./favorite.routes";
 import billRoutes from './bill.routes';
 import homeRoutes from "./home.routes";
-
+import profileRoutes from "./profile.routes";
 import adminProductRoutes from './adminProduct.routes'
 
 import userController from '../controllers/user.controller';
@@ -49,6 +49,7 @@ router.use("/admin",authenticateAccessToken,checkRole, adminRoutes);
 router.use("/cart", authenticateAccessToken, cartRoutes);
 router.use("/favorite", authenticateAccessToken, favoriteRoutes);
 router.use('/bill',authenticateAccessToken,checkRole, billRoutes);
+router.use('/profile',authenticateAccessToken,profileRoutes);
 
 router.use('/',homeRoutes);
 

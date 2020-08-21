@@ -9,4 +9,6 @@ router.get('/bill',cartController.BillUser);
 router.post("/addtocart/:idproduct/:type", cartController.PostAddToCart);
 router.post("/remove/:idproduct/:type", cartController.Remove);
 
+router.post('/buynow/:idproduct/:type',cartController.PostBuyNow);
+
 export default router;

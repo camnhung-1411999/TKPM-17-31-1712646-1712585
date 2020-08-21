@@ -13,7 +13,16 @@
                 {{!-- data-toggle="modal" --}}
                 <div class="modal-1" data-target="#staticBackdrop">
                     {{#if user.username}}
-                    <span class="content">{{user.username}}</span>
+                    <div class="help">
+                        <span class="content">{{user.username}}</span>
+                        <div class="drop-down">
+                            <ul class="list">
+                                <li class="item"> <a class="content" href="/profile"> Profile </a></li>
+                                <li class="item"> <a class="content" href="/profile/bill">Bills</a></li>
+                                <li class="item"> <a class="content" href="/profile">Change PassWord</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <span class="content ml-5"> <a href="/../auth/logout">Log out</a></span>
                     {{else}}
                     <span class="content"><a href="/../auth/login">Join/Log In With Us</a></span>
@@ -65,16 +74,7 @@
                     </div> --}}
 
                 </div>
-                <div class="help">
-                    <span class="content">Help</span>
-                    <div class="drop-down">
-                        <ul class="list">
-                            <li class="item"> <a class="content" href="tel:0967945772"><i class="fa fa-phone-square" aria-hidden="true"></i> Hotline </a></li>
-                            <li class="item"> <a class="content" href="#">About Us</a></li>
-                            <li class="item"> <a class="content" href="#">Team </a></li>
-                        </ul>
-                    </div>
-                </div>
+
                 <div class="cart">
                     <a href="/favorite"><i class="icon fas fa-heart"></i></a>
                 </div>
@@ -111,8 +111,8 @@
                         {{!-- <form method="post" action="/search"> --}}
                             <input type="text" class="form-control" name="search" placeholder="Search" aria-label="Search"
                                 aria-describedby="basic-addon1">
-                            <input type="submit" value="" style="visibility: hidden"/>
-                        {{!-- </form> --}}
+                            <input type="submit" value="" style="visibility: hidden" />
+                            {{!-- </form> --}}
                     </div>
                 </form>
             </div>

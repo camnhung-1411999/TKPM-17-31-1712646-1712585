@@ -15,8 +15,16 @@ class billService{
         return bill;
     }
 
+    static async listOfUser(username: string){
+       return await BillCollection.find({username});
+    }
+
     static async listFollowUser(username: string):Promise<IBill[]| null>{
         return await BillCollection.find({username});
+    }
+
+    static async infoBill(idbill: string):Promise<IBill| null>{
+        return await BillCollection.findOne({_id:idbill});
     }
 }
 export default billService;

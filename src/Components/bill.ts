@@ -4,6 +4,7 @@ export interface IProBill{
     type: String,
     numbuy:String,
     price: String,
+    image: String
 }
 export interface IBill{
     code: String,

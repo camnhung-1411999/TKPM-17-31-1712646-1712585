@@ -6,44 +6,8 @@
         <div class="col-8 offset-2 py-md-3 pl-md-5 bd-content listbid">
 
             <div id="titleOrder" class="row ">
-                <h2 class="col mb-5 text-align font-weight-bold">MANAGER ORDER FROM USER</h2>
+                <h2 class="col mb-5 text-align font-weight-bold">My Order</h2>
             </div>
-            <div class="row ">
-                <h4 class="col mb-3 text-align font-weight-light">Change status order</h4>
-            </div>
-            <form method="post"  action="/bill/update">
-            <div class="row" style="font-size: 15px;">
-                <div class="col-6 offset-1">
-                    <div class="input-group mb-3">
-                        <select class="custom-select" id="inputGroupSelect02" name = "code" style="height:30px">
-                            {{#each list}}
-                            <option>{{this.code}}</option>
-                            {{/each}}
-                        </select>
-                        <div class="input-group-append">
-                            <label class="input-group-text" for="inputGroupSelect02">Code bill</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="input-group mb-3">
-                        <select class="custom-select" id="inputGroupSelect02" name="status" style="height:30px">
-                            <option selected>Process...</option>
-                            <option >Confirm</option>
-                            <option >Shipping</option>
-                            <option >Done</option>
-                            <option >Cancel</option>
-                        </select>
-                        <div class="input-group-append">
-                            <label class="input-group-text" for="inputGroupSelect02">Status</label>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-outline-secondary" style="height:30px">Change</button>
-                </div>
-            </div>
-            </form>
 
             <table class="table table-sm txt-center table-hover mt-5" id="listStore">
                 <thead>
@@ -70,7 +34,7 @@
                     <td class="pt-3">{{this.email}}</td>
                     <td class="pt-3">{{this.phone}}</td>
                     <td class="pt-3">{{this.deliveryadress}}</td>
-                    <td class="pt-3"><a href="/../bill/detail/{{this._id}}">more</a></td>
+                    <td class="pt-3"><a href="/profile/bill/{{this._id}}">more</a></td>
                     <td class="pt-3">{{this.sumprice}}</td>
                     <td class="pt-3"></td>
                     <td class="pt-3">{{this.status}}</td>
