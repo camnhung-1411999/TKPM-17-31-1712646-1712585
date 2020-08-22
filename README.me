@@ -1,0 +1,12 @@
+#add to node_modules/types/express/index.d.ts
+interface IAccount {
+    username: string,
+    password: string
+}
+declare global {
+    namespace Express {
+        interface Request {
+            user: IAccount
+        }
+    }
+}

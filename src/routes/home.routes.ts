@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 import { authenticateAccessToken } from "../utils/jsonwebtoken";
 import productCollection from '../models/product.model';
-router.get("/", authenticateAccessToken, async (req, res) => {
+router.get("/",  async (req, res) => {
 
     let products = await productCollection.find({}).limit(9);
     res.render("home", {
