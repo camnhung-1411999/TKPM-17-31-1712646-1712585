@@ -82,7 +82,12 @@ class ProfileController {
                         }
                         console.log(hash);
                        await UserCollection.findOneAndUpdate({username: req.user.username},{password: hash},{new:true});
+                       if(req.user.username === 'admin'){
+                           res.redirect('/admin');
+                       }
+                       else{ 
                         res.redirect('/');
+                       }
                     });
                 }
             } else {
