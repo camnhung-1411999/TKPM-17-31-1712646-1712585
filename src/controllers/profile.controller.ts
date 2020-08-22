@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 import UserCollection from "../models/user.model";
 import BillService from "../services/bill.service";
+import bcrypt from 'bcrypt';
+
 class ProfileController {
     static async Profile(req: Request, res: Response) {
         const profile = await UserCollection.findOne({ username: req.user.username });
-        res.render('profile/profile', { title: 'Profile', profile });
+        res.render('profile/profile', { title: 'Profile', profile,   user: req.user, });
     }
 
     static async UpdateProfile(req: Request, res: Response) {
@@ -26,7 +28,8 @@ class ProfileController {
         const list = await BillService.listOfUser(req.user.username);
         res.render('profile/profilebill',{ 
             title:'my bill',
-            list
+            list,
+            user: req.user,
         })
     }
 
@@ -45,15 +48,47 @@ class ProfileController {
             }
         }
 
-        console.log(list);
-   
         res.render('profile/infoBill',{
             title:'infor of my bill',
             list: list?.products,
             confirm,
             shipping,
-            done
+            done,
+            user: req.user,
         })
+    }
+
+    static async ChangePassword(req:Request, res:Response){
+        res.render('profile/changepassword',{
+            title:'Change password',
+            user: req.user
+        });
+    }
+
+    static async PostChangePassword(req: Request, res: Response){
+        let temp = {
+            password: req.body.password,
+            newpassword: req.body.newpassword,
+            confirm: req.body.confirm
+        }
+        const value: any = await UserCollection.find({ username: req.user.username});
+
+        bcrypt.compare(req.body.password, value.password, async (result) => {
+            if (result) {
+                if(temp.newpassword === temp.confirm){
+                    await bcrypt.hash(temp.newpassword, 10, async (error, hash) => {
+                        if (error) {
+                            throw error;
+                        }
+                        console.log(hash);
+                       await UserCollection.findOneAndUpdate({username: req.user.username},{password: hash},{new:true});
+                        res.redirect('/');
+                    });
+                }
+            } else {
+                console.log("invalid");
+            }
+        });
     }
 }
 

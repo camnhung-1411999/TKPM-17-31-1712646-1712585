@@ -5,7 +5,6 @@ import productCollection from '../models/product.model';
 router.get("/", authenticateAccessToken, async (req, res) => {
 
     let products = await productCollection.find({}).limit(9);
-    console.log(products);
     res.render("home", {
         title: "Home",
         user: req.user,

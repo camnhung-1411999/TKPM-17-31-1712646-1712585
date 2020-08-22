@@ -6,13 +6,6 @@ import bcrypt from 'bcrypt';
 export default class Auth {
     public static async hashPassword(password: string): Promise<string> {
         return new Promise((resolve) => {
-            // bcrypt.genSalt(10, (err, salt) => {
-            //     if (err) { throw err; }
-            //     bcrypt.hash(password, salt, (err, hash) => {
-            //         if (err) { throw err; }
-            //         resolve(hash);
-            //     });
-            // });
             bcrypt.hash(password, 10, (error, hash) => {
                 if (error) {
                     throw error;
