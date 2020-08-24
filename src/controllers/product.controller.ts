@@ -165,7 +165,6 @@ class ProductController {
               comments.push(temp);
             });
 
-            console.log(comments);
           }
 
           res.render("products/informationproduct", {

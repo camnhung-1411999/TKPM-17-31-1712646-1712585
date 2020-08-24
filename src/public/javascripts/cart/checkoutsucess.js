@@ -12,13 +12,10 @@ $(document).ready(function () {
     let arrcokkie = cookie.split(';');
     arrcokkie.map(value => {
         let temp = value.split('=');
-        if (temp[0].trim() === 'addtocart') {
+        if (temp[0].trim() === 'paysucess') {
            if(temp[1].trim() === 'true')
            {
-            $('#btnsucess').click();
-            createCookie(temp[0], "", -1);
-           }else{
-            $('#btninvalid').click();
+            $('#paysucess').click();
             createCookie(temp[0], "", -1);
            }
         }

@@ -32,9 +32,9 @@ class CartController {
     }))
   }
 
-  static async BillUser(req: Request, res: Response){
+  static async BillUser(req: Request, res: Response) {
     let bills = await Promise.resolve(billService.listFollowUser(req.user.username));
-    res.render('pay/bill',{ title:"Bill's"+ req.user.username, bills});
+    res.render('pay/bill', { title: "Bill's" + req.user.username, bills });
   }
 
   static async PostCheckOut(req: Request, res: Response) {
@@ -59,12 +59,12 @@ class CartController {
       let arr = element.price.split(',');
       let str = '';
       arr.map((value) => {
-          str += value;
+        str += value;
       })
       sum += Number(str) * Number(element.numbuy);
-  });
-  let temp = String(sum);
-  let result = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    });
+    let temp = String(sum);
+    let result = temp.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 
 
 
@@ -81,17 +81,19 @@ class CartController {
       status: 'Processing..'
     };
     billService.create(bill);
-    res.redirect('/cart');
-
     if (product) {
-      product.forEach( async element => {
-        cartService.remove( String(element.idproduct), String(element.type));
-        let pro:IProduct|null = await productService.find(String(element.type), String(element.idproduct));
-        if(pro){
-          productService.update(element.idproduct+ '',{numberproduct:Number(pro.numberproduct)-Number(element.numproduct)});
+      product.forEach(async element => {
+        cartService.remove(String(element.idproduct), String(element.type));
+        let pro: IProduct | null = await productService.find(String(element.type), String(element.idproduct));
+        if (pro) {
+          productService.update(element.idproduct + '', { numberproduct: Number(pro.numberproduct) - Number(element.numproduct) });
         }
       });
     }
+    res.cookie("paysucess",true);
+    res.redirect('/cart');
+
+   
 
   }
 
@@ -117,16 +119,18 @@ class CartController {
               price: result.price,
             });
             cart.save();
+            res.cookie("addtocart", true);
+
           }
         } else {
-          res.cookie("addtocart", true);
+          res.cookie("addtocart", false);
         }
         res.redirect("/products/" + idproduct + "/" + type + "/");
       })
     );
   }
 
-  static PostBuyNow(req: Request, res: Response){
+  static PostBuyNow(req: Request, res: Response) {
     let idproduct = req.params.idproduct;
     let type = req.params.type;
 
