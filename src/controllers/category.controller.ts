@@ -16,27 +16,28 @@ class CategoryController {
         const code = req.params.code;
         return CategoryService.find(code);
     }
-    static create(req:Request, res:Response){
+    static async create(req:Request, res:Response){
         const data:any = {
             code: req.body.code,
             name: req.body.name,
             number: 0
         }
-        CategoryService.create(data);
+        await CategoryService.create(data);
         res.redirect('/category');
     }
-    static update(req: Request, res: Response) {
+    static async update(req: Request, res: Response) {
         const data: any = {
-            code: req.params.code,
-            name: req.body.uname || null,
-            number: req.body.number || null
+            code: req.body.oldcate,
+            name: req.body.newcate,
+            number: req.body.newid
         }
-        CategoryService.update(data);
+        await CategoryService.update(data);
         res.redirect('/category');
     }
-    static delete(req: Request, res: Response){
-        const code = req.params.code;
-        CategoryService.delete(code);
+    static async delete(req: Request, res: Response){
+        const code = req.body.cate;
+        console.log(code)
+        await CategoryService.delete(code);
         res.redirect('/category');
     }
 }

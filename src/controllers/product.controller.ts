@@ -68,7 +68,7 @@ class ProductController {
   }
 
   static upload(req: Request, res: Response) {
-    res.render("products/upload", { title: "Upload New Product" });
+    res.render("products/upload", { title: "Upload New Product", admin: true });
   }
 
   static postUpload(req: Request, res: Response) {

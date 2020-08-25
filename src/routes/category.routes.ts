@@ -15,12 +15,12 @@ router.post(
     '/',
     CategoryController.create
 )
-router.put(
-    '/:code',
+router.post(
+    '/renamecate',
     CategoryController.update
 )
-router.delete(
-    '/:code',
+router.post(
+    '/deletecate',
     CategoryController.delete
 )
 export default router;

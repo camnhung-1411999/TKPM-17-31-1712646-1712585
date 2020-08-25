@@ -16,7 +16,7 @@ class CategoryService {
     static async update(cate: ICategory){
         const condition = {
             name: cate.name,
-            code: cate.code
+            code: cate.name
         }
         if(condition.name === null){
             delete condition.name;
@@ -26,7 +26,7 @@ class CategoryService {
         }
         return await CategoryCollection.findOneAndUpdate({
             code: cate.code
-        },condition)
+        },condition,{new: true})
     }
     static async delete(code:string){
         return await CategoryCollection.findOneAndRemove({code:code});
