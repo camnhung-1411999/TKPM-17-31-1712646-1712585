@@ -34,7 +34,7 @@
     "express-session": "^1.17.1",
     "firis-service-sdk-test2": "^1.0.80",
     "fs": "0.0.1-security",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.27.0",
     "mongoose": "^5.9.22",
     "morgan": "^1.10.0",
